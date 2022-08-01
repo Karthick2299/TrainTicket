@@ -12,7 +12,6 @@ public interface TicketFareRepository  extends CrudRepository<TicketFare,Integer
  	
  	TicketFare save(TicketFare tf);
  	
- 	// Used for adding new doctor
  	void deleteById(int id);
  	
  	List<TicketFare> findAll(); 

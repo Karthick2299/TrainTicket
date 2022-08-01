@@ -12,7 +12,7 @@ public interface PaymentDetailRepository extends CrudRepository<PaymentDetail,In
  	
 	PaymentDetail save(PaymentDetail pd);
  	
- 	// Used for adding new doctor
+ 	
  	void deleteById(int id);
  	
  	List<PaymentDetail> findAll(); 

@@ -11,7 +11,6 @@ public interface TicketDetailRepository extends CrudRepository<TicketDetail,Inte
  	
  	TicketDetail save(TicketDetail td);
  	
- 	// Used for adding new doctor
  	void deleteById(int id);
  	
  	List<TicketDetail> findAll(); 

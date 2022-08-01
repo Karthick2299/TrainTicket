@@ -12,7 +12,6 @@ public interface TrainDetailRepository extends CrudRepository<TrainDetail,Intege
  	
  	TrainDetail save(TrainDetail td);
  	
- 	// Used for adding new doctor
  	void deleteById(int id);
  	
  	List<TrainDetail> findAll(); 
