@@ -63,5 +63,4 @@ public class StationController {
 		model.addAttribute("getuserbystnid", sn);
 		return "find-station-by-id";
 	}
-
 }
