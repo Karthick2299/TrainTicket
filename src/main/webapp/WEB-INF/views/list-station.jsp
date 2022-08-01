@@ -20,9 +20,9 @@
 			<tbody>
 				<c:forEach var="stn" items="${allstations}">
 					<tr>
-						<td>${stn.station_id}</td>
-						<td>${stn.station_name}</td>
-						<td>${stn.station_address}</td>
+						<td>${stn.stationId}</td>
+						<td>${stn.stationName}</td>
+						<td>${stn.stationAddress}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

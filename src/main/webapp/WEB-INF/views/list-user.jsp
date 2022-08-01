@@ -26,13 +26,13 @@
 			<tbody>
 				<c:forEach var="usr" items="${allusers}">
 					<tr>
-						<td>${usr.user_id}</td>
-						<td>${usr.user_password}</td>
-						<td>${usr.user_name}</td>
-						<td>${usr.date_of_birth}</td>
+						<td>${usr.userId}</td>
+						<td>${usr.userPassword}</td>
+						<td>${usr.userName}</td>
+						<td>${usr.dateOfBirth}</td>
 						<td>${usr.gender}</td>
-						<td>${usr.mail_id}</td>
-						<td>${usr.phone_number}</td>
+						<td>${usr.mailId}</td>
+						<td>${usr.phoneNumber}</td>
 						<td>${usr.address}</td>
 						<td>${usr.nationality}</td>
 					</tr>

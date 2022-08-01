@@ -1,18 +1,20 @@
 package com.chainsys.trainticket.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.trainticket.pojo.Station;
+import com.chainsys.trainticket.model.Station;
 
-public interface StationRepository extends CrudRepository<Station,Integer>  {
+public interface StationRepository extends CrudRepository<Station,String>  {
 
-  Station findById(int id);
+  Optional<Station> findById(String id);
+	
 	
 	Station save(Station sn);
 	
-	void deleteById(int id);
+	void deleteById(String id);
 	
 	List<Station> findAll();
 }
