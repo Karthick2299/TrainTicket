@@ -21,10 +21,10 @@ public class TicketFareController {
 	@Autowired
 	TicketFareService ticfareservice;
 	 
-	@GetMapping("/listtkfare")
+	@GetMapping("/listtktfare")
 	public String getTicketFares(Model model) {
 		List<TicketFare> theTf= ticfareservice.getTicketFares();
-		model.addAttribute("alltkfare", theTf);
+		model.addAttribute("alltktfare", theTf);
 		return "list-ticket-fare-form";
 	}
 	@GetMapping("/addform")
@@ -34,8 +34,8 @@ public class TicketFareController {
 		return "add-ticket-fare-form";
 	}
 
-	@PostMapping("/newtrain")
-	public String addtkfare(@ModelAttribute("addtrain") TicketFare theTf) {
+	@PostMapping("/newticketfare")
+	public String addtkfare(@ModelAttribute("addtktfare") TicketFare theTf) {
 		ticfareservice.save(theTf);
 		return "redirect:/ticketfare/list-ticket-fare-form";
 }
@@ -61,7 +61,7 @@ public class TicketFareController {
 	public String getticketbyid(@RequestParam("TrainNo") int id, Model model) {
 		TicketFare tn = ticfareservice.findByid(id);
 		model.addAttribute("getticketfarebynum", tn);
-		return "find-ticket-fare-bynum-form";
+		return "find-ticket-fare-by-ticketnum";
 	}
 
 

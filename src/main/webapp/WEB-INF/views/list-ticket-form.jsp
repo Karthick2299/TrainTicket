@@ -27,7 +27,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="tkt" items="${allusers}">
+				<c:forEach var="tkt" items="${alltickets}">
 					<tr>
 						<td>${tkt.userId}</td>
 						<td>${tkt.trainNo}</td>

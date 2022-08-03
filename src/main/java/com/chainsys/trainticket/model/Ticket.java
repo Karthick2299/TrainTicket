@@ -1,7 +1,6 @@
 package com.chainsys.trainticket.model;
 
 import java.util.Date;
-import java.util.TimeZone;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Ticket")
+@Table(name="ticket")
 public class Ticket {
 	@Id
 	@Column(name="user_id")
@@ -33,9 +32,10 @@ public class Ticket {
 	@Column(name="destination_station")
 	private String destinationStation;
 	@Column(name="boarding_time")
-	private TimeZone boardingTime;
+	private String boardingTime;
 	@Column(name="arrival_time")
-	private TimeZone arrivalTime;
+	private String arrivalTime;
+	
 	
 	public String getUserId() {
 		return userId;
@@ -97,18 +97,20 @@ public class Ticket {
 	public void setDestinationStation(String destinationStation) {
 		this.destinationStation = destinationStation;
 	}
-	public TimeZone getBoardingTime() {
+	public String getBoardingTime() {
 		return boardingTime;
 	}
-	public void setBoardingTime(TimeZone boardingTime) {
+	public void setBoardingTime(String boardingTime) {
 		this.boardingTime = boardingTime;
 	}
-	public TimeZone getArrivalTime() {
+	public String getArrivalTime() {
 		return arrivalTime;
 	}
-	public void setArrivalTime(TimeZone arrivalTime) {
+	public void setArrivalTime(String arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
+	
+	
 	
 	
 }

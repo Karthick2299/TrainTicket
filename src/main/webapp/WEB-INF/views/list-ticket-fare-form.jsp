@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>s
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>s
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,30 @@
 <title>Ticket Fare</title>
 </head>
 <body>
+	<div id="table root">
+		<table>
+			<thead>
+				<tr>
+					<th>Train Number</th>
+					<th>Travel Date</th>
+					<th>Max Seats</th>
+					<th>Seat Class</th>
+					<th>Fare</th>
 
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="tktf" items="${alltktfare}">
+					<tr>
+						<td>${tktf.trainNo}</td>
+						<td>${tktf.travelDate}</td>
+						<td>${tktf.maxSeats}</td>
+						<td>${tktf.seatClass}</td>
+						<td>${tktf.fare}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>

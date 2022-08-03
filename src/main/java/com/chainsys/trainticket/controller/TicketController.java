@@ -1,7 +1,6 @@
 package com.chainsys.trainticket.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,8 +24,8 @@ public class TicketController {
 	@GetMapping("/listticket")
 	public String getTickets(Model model) {
 		List<Ticket> theTk= ticketservice.getTickets();
-		model.addAttribute("allusers", theTk);
-		return "list-user";
+		model.addAttribute("alltickets", theTk);
+		return "list-ticket-form";
 	}
 	@GetMapping("/addform")
 	public String AddForm(Model model) {
@@ -41,26 +40,26 @@ public class TicketController {
 		return "redirect:/ticket/listticket";
 }
 	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("user_id") String id, Model model) {
-		Optional<Ticket> theTk = ticketservice.findByid(id);
+	public String showUpdateForm(@RequestParam("ticketNo") int id, Model model) {
+		Ticket theTk = ticketservice.findByid(id);
 		model.addAttribute("updateticket", theTk);
 		return "update-ticket-form";
 	}
 
 	@PostMapping("/updatetk")
-	public String modifyticket(@ModelAttribute("updateuser") Ticket theTk) {
+	public String modifyticket(@ModelAttribute("updateticket") Ticket theTk) {
 	 ticketservice.save(theTk);
 		return "redirect:/ticket/listticket";
 	}
 	@GetMapping("/deleteticket")
-	public String deleteticket(@RequestParam("user_id") String id) {
+	public String deleteticket(@RequestParam("ticketNo") int id) {
 		ticketservice.deleteById(id);
 		return "redirect:/ticket/listticket";
 	}
 
 	@GetMapping("/getticketbyid")
-	public String getticketbyid(@RequestParam("user_id") String id, Model model) {
-		Optional<Ticket> ur = ticketservice.findByid(id);
+	public String getticketbyid(@RequestParam("ticketNo") int id, Model model) {
+		Ticket ur = ticketservice.findByid(id);
 		model.addAttribute("getticketbyid", ur);
 		return "find-ticket-by-id";
 	}

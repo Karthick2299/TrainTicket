@@ -1,7 +1,6 @@
 package com.chainsys.trainticket.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -26,12 +25,12 @@ public class TicketService {
 		{
 			return ticketrepo.save(tk);
 		}
-		public Optional<Ticket> findByid(String id)
+		public Ticket findByid(int id)
 		{
 		return ticketrepo.findById(id);
 		}
 		@Transactional
-		public void deleteById(String id)
+		public void deleteById(int id)
 		{
 			ticketrepo.deleteById(id);
 		}

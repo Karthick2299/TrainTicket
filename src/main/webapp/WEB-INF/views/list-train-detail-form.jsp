@@ -8,6 +8,32 @@
 <title>Train Detail</title>
 </head>
 <body>
-
+<div id="table root">
+		<table>
+			<thead>
+				<tr>
+					<th>Train Number</th>
+					<th>Train Name</th>
+					<th>Start Place</th>
+					<th>Destination</th>
+					<th>Arrival Time</th>
+					<th>Departure Time</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="trnd" items="${alltrains}">
+					<tr>
+						<td>${trnd.trainNo}</td>
+						<td>${trnd.trainName}</td>
+						<td>${trnd.startPlace}</td>
+						<td>${trnd.destination}</td>
+						<td>${trnd.arrivalTime}</td>
+						<td>${trnd.departureTime}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>

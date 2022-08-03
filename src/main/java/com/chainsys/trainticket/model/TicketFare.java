@@ -1,16 +1,20 @@
 package com.chainsys.trainticket.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name=" Ticket_fare")
+@Table(name=" ticket_fare")
 public class TicketFare {
 	@Id
 	@Column(name="train_no")
 	private int trainNo;
+	@Column(name="Travel_Date")
+	private Date travelDate;
 	@Column(name="max_seats")
 	private float maxSeats;
 	@Column(name="seat_class")
@@ -23,6 +27,12 @@ public class TicketFare {
 	}
 	public void setTrainNo(int trainNo) {
 		this.trainNo = trainNo;
+	}
+	public Date getTravelDate() {
+		return travelDate;
+	}
+	public void setTravelDate(Date travelDate) {
+		this.travelDate = travelDate;
 	}
 	public float getMaxSeats() {
 		return maxSeats;
@@ -43,6 +53,4 @@ public class TicketFare {
 		this.fare = fare;
 	}
 	
-	
-
 }

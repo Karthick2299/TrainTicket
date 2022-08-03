@@ -17,7 +17,7 @@ import com.chainsys.trainticket.service.TrainDetailService;
 
 
 @Controller
-@RequestMapping("/traindetails")
+@RequestMapping("/traindetail")
 public class TrainDetailController {
 	@Autowired
 	TrainDetailService traindetailservice;
@@ -62,7 +62,7 @@ public class TrainDetailController {
 	public String getticketbyid(@RequestParam("TrainNo") int id, Model model) {
 		TrainDetail tn = traindetailservice.findByid(id);
 		model.addAttribute("gettrainbynum", tn);
-		return "find-train-by-num-form";
+		return "find-train-by-num";
 	}
 
 

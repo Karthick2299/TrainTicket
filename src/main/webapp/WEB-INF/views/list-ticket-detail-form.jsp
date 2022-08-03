@@ -8,6 +8,32 @@
 <title>Ticket Detail List</title>
 </head>
 <body>
-
+<div id="table root">
+		<table>
+			<thead>
+				<tr>
+					<th>Ticket Number</th>
+					<th>Seat Number</th>
+					<th>Passenger Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>Nationality</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="tktd" items="${allticketdetails}">
+					<tr>
+						<td>${tktd.ticketNo}</td>
+						<td>${tktd.seatNo}</td>
+						<td>${tktd.passengerName}</td>
+						<td>${tktd.age}</td>
+						<td>${tktd.gender}</td>
+						<td>${tktd.nationality}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
