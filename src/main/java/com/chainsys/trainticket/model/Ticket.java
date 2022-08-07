@@ -2,6 +2,7 @@ package com.chainsys.trainticket.model;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -44,16 +46,32 @@ public class Ticket {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="train_no",nullable=false,insertable=false,updatable=false)
 	private TrainDetail trainDetail;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id",nullable=false,insertable=false,updatable=false)
+	private User user;
+	@OneToOne(mappedBy ="ticket", fetch = FetchType.LAZY)
+    private PaymentDetail paymentDetail;
+	@OneToMany(mappedBy="ticket",fetch=FetchType.LAZY)
+	private List<TicketDetail> ticketDetail;
 	
+	public List<TicketDetail> getTicketDetail() {
+		return ticketDetail;
+	}
+	public void setTicketDetail(List<TicketDetail> ticketDetail) {
+		this.ticketDetail = ticketDetail;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public TrainDetail getTrainDetail() {
 		return trainDetail;
 	}
 	public void setTrainDetail(TrainDetail trainDetail) {
 		this.trainDetail = trainDetail;
 	}
-	@OneToOne(mappedBy ="ticket", fetch = FetchType.LAZY)
-    private PaymentDetail paymentDetail;
-	
 	public PaymentDetail getPaymentDetail() {
 		return paymentDetail;
 	}

@@ -14,5 +14,7 @@ public interface TicketDetailRepository extends CrudRepository<TicketDetail,Inte
  	void deleteById(int id);
  	
  	List<TicketDetail> findAll(); 
+ 	
+ 	List<TicketDetail> findByTicketNo(int id);
 
 }

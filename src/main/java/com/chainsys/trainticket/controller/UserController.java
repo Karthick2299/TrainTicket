@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.trainticket.dto.UserAndPaymentDetailDTO;
+import com.chainsys.trainticket.dto.UserAndTicketDTO;
 import com.chainsys.trainticket.model.User;
 import com.chainsys.trainticket.service.UserService;
 
@@ -63,7 +65,18 @@ public class UserController {
 		model.addAttribute("getuserbyid", ur);
 		return "find-user-by-id";
 	}
-	
-
-
+	@GetMapping("/getuserticket")
+	public String getUserAndTicket(@RequestParam("ticket")String name,Model model) {
+		UserAndTicketDTO dto = urservice.getUserAndTicketDTO(name);
+		model.addAttribute("user",dto.getUser());
+		model.addAttribute("ticket",dto.getTicket());
+		return "user-and-ticket";
+	}
+	@GetMapping("/getuserpayment")
+	public String getUserAndPaymentDetail(@RequestParam("user")String string,Model model) {
+		UserAndPaymentDetailDTO dto1 = urservice.getUserAndPaymentDetailDTO(string);
+		model.addAttribute("user",dto1.getUser());
+		model.addAttribute("payment",dto1.getPaymentDetail());
+		return "user-and-payment-detail";
 }
+} 

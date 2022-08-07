@@ -1,10 +1,13 @@
 package com.chainsys.trainticket.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +32,23 @@ public class User {
 	private String address;
 	@Column(name="nationality")
 	private String nationality;
+	@OneToMany(mappedBy="user",fetch=FetchType.LAZY)
+	private List<Ticket> ticket;
+	@OneToMany(mappedBy="user",fetch=FetchType.LAZY)
+	private List<PaymentDetail> paymentDetail;
+	
+	public List<PaymentDetail> getPaymentDetail() {
+		return paymentDetail;
+	}
+	public void setPaymentDetail(List<PaymentDetail> paymentDetail) {
+		this.paymentDetail = paymentDetail;
+	}
+	public List<Ticket> getTicket() {
+		return ticket;
+	}
+	public void setTicket(List<Ticket> ticket) {
+		this.ticket = ticket;
+	}
 	public String getUserId() {
 		return userId;
 	}

@@ -4,7 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,8 +26,15 @@ public class TicketDetail {
 	private String gender;
 	@Column(name="Nationality")
 	private String nationality;
-	
-	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Ticket_No",nullable=false,insertable=false,updatable=false)
+	private Ticket ticket;
+	public Ticket getTicket() {
+		return ticket;
+	}
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
 	public int getTicketNo() {
 		return ticketNo;
 	}

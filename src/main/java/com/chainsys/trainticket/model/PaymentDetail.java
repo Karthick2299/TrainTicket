@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -31,7 +32,15 @@ public class PaymentDetail {
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name ="ticket_no", nullable = false, insertable = false, updatable = false)
     private Ticket ticket;
-	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id",nullable=false,insertable=false,updatable=false)
+	private User user;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Ticket getTicket() {
 		return ticket;
 	}

@@ -34,6 +34,7 @@ public class TrainDetail {
 	private Station station;
 	@OneToMany(mappedBy="trainDetail",fetch=FetchType.LAZY)
 	private List<TicketFare> ticketFare;
+	@OneToMany(mappedBy="trainDetail",fetch=FetchType.LAZY)
 	private List<Ticket> ticket;
 	
 	public List<Ticket> getTicket() {
