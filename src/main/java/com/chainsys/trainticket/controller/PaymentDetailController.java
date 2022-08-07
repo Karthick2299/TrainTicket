@@ -25,7 +25,7 @@ public class PaymentDetailController {
 	public String getPaymentDetails(Model model) {
 		List<PaymentDetail> thePd =pdservice.getPaymentDetails();
 		model.addAttribute("allpayments", thePd);
-		return "list-Payment-detail-form";
+		return "list-payment-detail-form";
 	}
 	@GetMapping("/addform")
 	public String AddPaymentForm(Model model) {
@@ -37,7 +37,7 @@ public class PaymentDetailController {
 	@PostMapping("/addpayment")
 	public String addstation(@ModelAttribute("newpayment") PaymentDetail thePd) {
 		pdservice.save(thePd);
-		return "redirect:/paymentdetails/listpayment";
+		return "redirect:/paymentdetail/listpayment";
 	}
 	@GetMapping("/updateform")
 	public String UpdatePaymentorm(@RequestParam("ticketNo") int id, Model model) {
@@ -47,21 +47,21 @@ public class PaymentDetailController {
 	}
 
 	@PostMapping("/modifypayment")
-	public String modifystation(@ModelAttribute("updatepayment") PaymentDetail thePd) {
+	public String modifyPayment(@ModelAttribute("updatepayment") PaymentDetail thePd) {
 	 pdservice.save(thePd);
-		return "redirect:/paymentdetails/listpayment";
+		return "redirect:/paymentdetail/listpayment";
   }
 	@GetMapping("/deletepayment")
-	public String deletestation(@RequestParam("ticketNo") int id) {
+	public String deletepayment(@RequestParam("ticketNo") int id) {
 		pdservice.deleteById(id);
-		return "redirect:/paymentdetails/listpayment";
+		return "redirect:/paymentdetail/listpayment";
 	}
-
-	@GetMapping("/getpaymentbyno")
-	public String getstation(@RequestParam("ticketNo") int id, Model model) {
-		PaymentDetail pd = pdservice.findByid(id);
-		model.addAttribute("getpaymentbytktno", pd);
-		return "find-payment-by-ticket-num";
-	}
+//
+//	@GetMapping("/getpaymentbyno")
+//	public String getstation(@RequestParam("ticketNo") int id, Model model) {
+//		PaymentDetail pd = pdservice.findByid(id);
+//		model.addAttribute("getpaymentbytktno", pd);
+//		return "find-payment-by-ticket-num";
+//	}
 
 }

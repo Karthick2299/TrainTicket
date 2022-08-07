@@ -1,22 +1,28 @@
 package com.chainsys.trainticket.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ticket")
+@Table(name="Ticket")
 public class Ticket {
-	@Id
+	
 	@Column(name="user_id")
 	private String userId;
 	@Column(name="train_no")
 	private int trainNo;
+	@Id
 	@Column(name="ticket_no")
-	private float ticketNo;
+	private int ticketNo;
 	@Column(name="seat_class")
 	private String seatClass;
 	@Column(name="travelling_date")
@@ -32,11 +38,28 @@ public class Ticket {
 	@Column(name="destination_station")
 	private String destinationStation;
 	@Column(name="boarding_time")
-	private String boardingTime;
+	private Timestamp boardingTime;
 	@Column(name="arrival_time")
-	private String arrivalTime;
+	private Timestamp arrivalTime;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="train_no",nullable=false,insertable=false,updatable=false)
+	private TrainDetail trainDetail;
 	
+	public TrainDetail getTrainDetail() {
+		return trainDetail;
+	}
+	public void setTrainDetail(TrainDetail trainDetail) {
+		this.trainDetail = trainDetail;
+	}
+	@OneToOne(mappedBy ="ticket", fetch = FetchType.LAZY)
+    private PaymentDetail paymentDetail;
 	
+	public PaymentDetail getPaymentDetail() {
+		return paymentDetail;
+	}
+	public void setPaymentDetail(PaymentDetail paymentDetail) {
+		this.paymentDetail = paymentDetail;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -49,10 +72,10 @@ public class Ticket {
 	public void setTrainNo(int trainNo) {
 		this.trainNo = trainNo;
 	}
-	public float getTicketNo() {
+	public int getTicketNo() {
 		return ticketNo;
 	}
-	public void setTicketNo(float ticketNo) {
+	public void setTicketNo(int ticketNo) {
 		this.ticketNo = ticketNo;
 	}
 	public String getSeatClass() {
@@ -97,16 +120,16 @@ public class Ticket {
 	public void setDestinationStation(String destinationStation) {
 		this.destinationStation = destinationStation;
 	}
-	public String getBoardingTime() {
+	public Timestamp getBoardingTime() {
 		return boardingTime;
 	}
-	public void setBoardingTime(String boardingTime) {
+	public void setBoardingTime(Timestamp boardingTime) {
 		this.boardingTime = boardingTime;
 	}
-	public String getArrivalTime() {
+	public Timestamp getArrivalTime() {
 		return arrivalTime;
 	}
-	public void setArrivalTime(String arrivalTime) {
+	public void setArrivalTime(Timestamp arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
 	

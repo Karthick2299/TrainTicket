@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.trainticket.dto.TrainDetailAndTicketDTO;
+import com.chainsys.trainticket.dto.TrainDetailAndTicketFareDTO;
 import com.chainsys.trainticket.model.TrainDetail;
 import com.chainsys.trainticket.service.TrainDetailService;
 
@@ -38,7 +40,7 @@ public class TrainDetailController {
 	@PostMapping("/newtrain")
 	public String addtrain(@ModelAttribute("addtrain") TrainDetail theTn) {
 		traindetailservice.save(theTn);
-		return "redirect:/traindetails/list-train-detail-form";
+		return "redirect:/traindetail/listtrain";
 }
 	@GetMapping("/updateform")
 	public String updateTrainDetailForm(@RequestParam("TrainNo")int id, Model model) {
@@ -50,12 +52,12 @@ public class TrainDetailController {
 	@PostMapping("/updatetn")
 	public String modifytrain(@ModelAttribute("updatetrain") TrainDetail theTn) {
 		traindetailservice.save(theTn);
-		return "redirect:/traindetails/list-train-detail-form";
+		return "redirect:/traindetail/listtrain";
 	}
 	@GetMapping("/deletetn")
 	public String deletetrain(@RequestParam("TrainNo") int id) {
 		traindetailservice.deleteById(id);
-		return "redirect:/traindetails/list-train-detail-form";
+		return "redirect:/traindetail/listtrain";
 	}
 
 	@GetMapping("/gettrainbyno")
@@ -63,6 +65,20 @@ public class TrainDetailController {
 		TrainDetail tn = traindetailservice.findByid(id);
 		model.addAttribute("gettrainbynum", tn);
 		return "find-train-by-num";
+	}
+	@GetMapping("/gettrainticketfare")
+	public String getTrainDetailAndTicketFare(@RequestParam("TrainNo")int id,Model model) {
+		TrainDetailAndTicketFareDTO dto=traindetailservice.getTrainDetailAndTicketFareDTO(id);
+		model.addAttribute("traindetail",dto.getTraindetail());
+		model.addAttribute("ticketfare",dto.getTicketFare());
+		return "train-detail-ticket-fare";
+	}
+	@GetMapping("/gettrainticketbook")
+	public String getTrainDetailAndTicket(@RequestParam("TrainNo")int id,Model model) {
+		TrainDetailAndTicketDTO dto1 =traindetailservice.getTrainDetailAndTicketDTO(id);
+		model.addAttribute("traindetail1",dto1.getTrainDetail());
+		model.addAttribute("ticket",dto1.getTicket());
+		return "train-detail-and-ticket-book";
 	}
 
 

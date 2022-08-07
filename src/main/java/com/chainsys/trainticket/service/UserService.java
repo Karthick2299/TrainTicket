@@ -8,32 +8,38 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.trainticket.dao.PaymentDetailRepository;
 import com.chainsys.trainticket.dao.UserRepository;
+import com.chainsys.trainticket.model.PaymentDetail;
 import com.chainsys.trainticket.model.User;
 
 @Service
 public class UserService {
 	@Autowired
-	private UserRepository rep;
+	private UserRepository userrepo;
+	@Autowired
+	private PaymentDetailRepository paymentrepo;
 	
 	public List<User> getUsers(){
-		List<User> listUs=rep.findAll();
+		List<User> listUs=userrepo.findAll();
 		return listUs;
 	}
 	@Transactional
-	public User save(User ur)
+	public User save(User theUr)
 	{
-		return rep.save(ur);
+		return userrepo.save(theUr);
 	}
 	public Optional<User> findByid(String id)
 	{
-	return rep.findById(id);
+	return userrepo.findById(id);
 	}
 	@Transactional
 	public void deleteById(String id)
 	{
-		rep.deleteById(id);
+		userrepo.deleteById(id);
 	}
+	
+
 
 
 }

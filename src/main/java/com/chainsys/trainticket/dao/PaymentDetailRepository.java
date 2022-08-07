@@ -17,4 +17,6 @@ public interface PaymentDetailRepository extends CrudRepository<PaymentDetail,In
  	
  	List<PaymentDetail> findAll(); 
 
+ //	PaymentDetail findByUserId  (String string);
+ 	PaymentDetail findByTicketNo  (int id);
 }

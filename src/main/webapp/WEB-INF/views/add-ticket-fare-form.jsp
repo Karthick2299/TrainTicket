@@ -19,12 +19,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="travelDate">Travel Date</label>
-					<div>
-						<form:input path="travelDate" />
-					</div>
-				</div>
-				<div>
 					<label for="maxSeats">Max Seats</label>
 					<div>
 						<form:input path="maxSeats" />

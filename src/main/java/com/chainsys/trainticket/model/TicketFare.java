@@ -4,17 +4,18 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name=" ticket_fare")
+@Table(name=" Ticket_fare")
 public class TicketFare {
 	@Id
 	@Column(name="train_no")
 	private int trainNo;
-	@Column(name="Travel_Date")
-	private Date travelDate;
 	@Column(name="max_seats")
 	private float maxSeats;
 	@Column(name="seat_class")
@@ -22,18 +23,23 @@ public class TicketFare {
 	@Column(name="fare")
 	private int fare;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="train_no",nullable=false,insertable=false,updatable=false)
+	private TrainDetail trainDetail;
+	
+	public TrainDetail getTrainDetail() {
+		return trainDetail;
+	}
+	public void setTrainDetail(TrainDetail trainDetail) {
+		this.trainDetail = trainDetail;
+	}
 	public int getTrainNo() {
 		return trainNo;
 	}
 	public void setTrainNo(int trainNo) {
 		this.trainNo = trainNo;
 	}
-	public Date getTravelDate() {
-		return travelDate;
-	}
-	public void setTravelDate(Date travelDate) {
-		this.travelDate = travelDate;
-	}
+	
 	public float getMaxSeats() {
 		return maxSeats;
 	}

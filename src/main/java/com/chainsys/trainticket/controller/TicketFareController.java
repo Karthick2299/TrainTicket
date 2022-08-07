@@ -30,14 +30,14 @@ public class TicketFareController {
 	@GetMapping("/addform")
 	public String AddTicketFare(Model model) {
 		TicketFare theTf = new TicketFare();
-		model.addAttribute("addtkfare", theTf);
+		model.addAttribute("addtktfare", theTf);
 		return "add-ticket-fare-form";
 	}
 
 	@PostMapping("/newticketfare")
 	public String addtkfare(@ModelAttribute("addtktfare") TicketFare theTf) {
 		ticfareservice.save(theTf);
-		return "redirect:/ticketfare/list-ticket-fare-form";
+		return "redirect:/ticketfare/listtktfare";
 }
 	@GetMapping("/updateform")
 	public String updateTicketFareForm(@RequestParam("TrainNo")int id, Model model) {
@@ -49,12 +49,12 @@ public class TicketFareController {
 	@PostMapping("/updatetf")
 	public String modifyticketfare(@ModelAttribute("updatetkfare") TicketFare theTf) {
 		ticfareservice.save(theTf);
-		return "redirect:/ticketfare/list-ticket-fare-form";
+		return "redirect:/ticketfare/listtktfare";
 	}
 	@GetMapping("/deletetf")
 	public String deleteticketfare(@RequestParam("TrainNo") int id) {
 		ticfareservice.deleteById(id);
-		return "redirect:/ticketfare/list-ticket-fare-form";
+		return "redirect:/ticketfare/listtktfare";
 	}
 
 	@GetMapping("/getticketfarebyno")

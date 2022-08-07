@@ -15,5 +15,7 @@ public interface TicketFareRepository  extends CrudRepository<TicketFare,Integer
  	void deleteById(int id);
  	
  	List<TicketFare> findAll(); 
+ 	
+ 	List<TicketFare> findByTrainNo(int id);
 
 }

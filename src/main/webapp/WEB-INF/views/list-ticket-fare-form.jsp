@@ -9,11 +9,10 @@
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table  border="2" width="100%" cellpadding="2">
 			<thead>
 				<tr>
 					<th>Train Number</th>
-					<th>Travel Date</th>
 					<th>Max Seats</th>
 					<th>Seat Class</th>
 					<th>Fare</th>
@@ -24,7 +23,6 @@
 				<c:forEach var="tktf" items="${alltktfare}">
 					<tr>
 						<td>${tktf.trainNo}</td>
-						<td>${tktf.travelDate}</td>
 						<td>${tktf.maxSeats}</td>
 						<td>${tktf.seatClass}</td>
 						<td>${tktf.fare}</td>

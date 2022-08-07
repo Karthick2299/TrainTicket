@@ -30,14 +30,14 @@ public class TicketDetailController {
 	@GetMapping("/addform")
 	public String AddTicketDetail(Model model) {
 		TicketDetail theTk = new TicketDetail();
-		model.addAttribute("addticketdetil", theTk);
+		model.addAttribute("addticketdetail", theTk);
 		return "add-ticket-detail-form";
 	}
 
 	@PostMapping("/newticketdetail")
-	public String addticketdetail(@ModelAttribute("addticketdetil") TicketDetail theTk) {
+	public String addticketdetail(@ModelAttribute("addticketdetail") TicketDetail theTk) {
 		ticketdetailservice.save(theTk);
-		return "redirect:/ticketdetails/listticketdetail";
+		return "redirect:/ticketdetail/listticketdetail";
 }
 	@GetMapping("/updateform")
 	public String updateTicketDetailForm(@RequestParam("ticketNo") int id, Model model) {
@@ -49,18 +49,18 @@ public class TicketDetailController {
 	@PostMapping("/updatetkdetail")
 	public String modifyticketdetail(@ModelAttribute("updateticketdetail") TicketDetail theTk) {
 	 ticketdetailservice.save(theTk);
-		return "redirect:/ticketdetails/listticketdetail";
+		return "redirect:/ticketdetail/listticketdetail";
 	}
 	@GetMapping("/deleteticketdetail")
 	public String deleteticket(@RequestParam("ticketNo") int id) {
 		ticketdetailservice.deleteById(id);
-		return "redirect:/ticketdetails/listticketdetail";
+		return "redirect:/ticketdetail/listticketdetail";
 	}
 
 	@GetMapping("/getticketdetailbyno")
 	public String getticketbyid(@RequestParam("ticketNo") int id, Model model) {
 		TicketDetail ur = ticketdetailservice.findByid(id);
-		model.addAttribute("getticketetaibynum", ur);
+		model.addAttribute("getticketdetailbynum", ur);
 		return "find-ticket-detail-by-ticketnum";
 	}
 

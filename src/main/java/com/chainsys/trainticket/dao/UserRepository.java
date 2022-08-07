@@ -10,7 +10,7 @@ import com.chainsys.trainticket.model.User;
 public interface UserRepository extends CrudRepository<User,String> {
 	Optional<User> findById(String id);
 	
-	User save(User us);
+	User save(Optional<User> ur);
 	
 	void deleteById(String id);
 	

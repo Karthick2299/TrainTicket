@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.trainticket.dto.StationAndTrainDetailDTO;
 import com.chainsys.trainticket.model.Station;
 import com.chainsys.trainticket.service.StationService;
 
@@ -40,7 +41,7 @@ public class StationController {
 		return "redirect:/station/list";
 	}
 	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("station_id") String id, Model model) {
+	public String showUpdateForm(@RequestParam("stationId") String id, Model model) {
 		Optional<Station> theSn = stservice.findByid(id);
 		model.addAttribute("updatestn", theSn);
 		return "update-station-form";
@@ -52,15 +53,22 @@ public class StationController {
 		return "redirect:/station/list";
   }
 	@GetMapping("/deletestation")
-	public String deletestation(@RequestParam("station_id") String id) {
+	public String deletestation(@RequestParam(name = "stationId") String id) {
 		stservice.deleteById(id);
 		return "redirect:/station/list";
 	}
 
 	@GetMapping("/getstationbyid")
-	public String getstation(@RequestParam("station_id") String id, Model model) {
+	public String getstation(@RequestParam("stationId") String id, Model model) {
 		Optional<Station> sn = stservice.findByid(id);
 		model.addAttribute("getuserbystnid", sn);
 		return "find-station-by-id";
+	}
+	@GetMapping("/getstationstartplace")
+	public String getStationAndTrainDetail(@RequestParam("name")String name,Model model) {
+		StationAndTrainDetailDTO dto=stservice.getStationAndTrainDetailDTO(name);
+		model.addAttribute("station",dto.getStation());
+		model.addAttribute("traindetail",dto.getTraindetail());
+		return "station-train-detail";
 	}
 }

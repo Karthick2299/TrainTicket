@@ -1,8 +1,12 @@
 package com.chainsys.trainticket.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +19,15 @@ public class Station {
 	private String stationName;
 	@Column(name="station_address")
 	private String stationAddress;
+	@OneToMany(mappedBy="station",fetch=FetchType.LAZY)
+	private List<TrainDetail> trainDetail;
 	
+	public List<TrainDetail> getTrainDetail() {
+		return trainDetail;
+	}
+	public void setTrainDetail(List<TrainDetail> trainDetail) {
+		this.trainDetail = trainDetail;
+	}
 	public String getStationId() {
 		return stationId;
 	}

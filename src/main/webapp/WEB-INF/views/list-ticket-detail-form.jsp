@@ -9,27 +9,27 @@
 </head>
 <body>
 <div id="table root">
-		<table>
+		<table  border="2" width="100%" cellpadding="2">
 			<thead>
 				<tr>
 					<th>Ticket Number</th>
 					<th>Seat Number</th>
 					<th>Passenger Name</th>
-					<th>Age</th>
+					<th>Date Of Birth</th>
 					<th>Gender</th>
 					<th>Nationality</th>
 					
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="tktd" items="${allticketdetails}">
+				<c:forEach var="ticketdetail" items="${allticketdetails}">
 					<tr>
-						<td>${tktd.ticketNo}</td>
-						<td>${tktd.seatNo}</td>
-						<td>${tktd.passengerName}</td>
-						<td>${tktd.age}</td>
-						<td>${tktd.gender}</td>
-						<td>${tktd.nationality}</td>
+						<td>${ticketdetail.ticketNo}</td>
+						<td>${ticketdetail.seatNo}</td>
+						<td>${ticketdetail.passengerName}</td>
+						<td>${ticketdetail.dob}</td>
+						<td>${ticketdetail.gender}</td>
+						<td>${ticketdetail.nationality}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

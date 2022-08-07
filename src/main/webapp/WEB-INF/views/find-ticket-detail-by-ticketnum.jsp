@@ -10,7 +10,7 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form method="post" modelAttribute="updateticketdetail">
+			<form:form method="post" modelAttribute="getticketdetailbynum">
 				<div>
 					<label for="ticketNo">Ticket Number</label>
 					<div>
@@ -30,9 +30,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="age"> Age</label>
+					<label for="dob"> Date Of Birth</label>
 					<div>
-						<form:input path="age" readonly="true" />
+						<form:input path="dob" readonly="true" />
 					</div>
 				</div>
 

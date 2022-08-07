@@ -7,7 +7,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.trainticket.dao.PaymentDetailRepository;
 import com.chainsys.trainticket.dao.TicketRepository;
+import com.chainsys.trainticket.dto.TicketAndPaymentDetailDTO;
+import com.chainsys.trainticket.model.PaymentDetail;
 import com.chainsys.trainticket.model.Ticket;
 
 
@@ -15,6 +18,8 @@ import com.chainsys.trainticket.model.Ticket;
 public class TicketService {
 	 @Autowired
 	 private  TicketRepository ticketrepo;
+	 @Autowired
+	 private PaymentDetailRepository paymentDetailRepository;
 	 
 	 public List<Ticket>getTickets(){
 		 List<Ticket> listSt = ticketrepo.findAll();
@@ -34,4 +39,13 @@ public class TicketService {
 		{
 			ticketrepo.deleteById(id);
 		}
+		public TicketAndPaymentDetailDTO getTicketAndPaymentDetailDTO(int id) 
+		{  
+		    Ticket ticket=ticketrepo.findById(id);
+		    TicketAndPaymentDetailDTO dto=new TicketAndPaymentDetailDTO();
+		    dto.setTicket(ticket);
+		    PaymentDetail paymentDetail=paymentDetailRepository.findByTicketNo(id);
+		    dto.setPaymentDetail(paymentDetail);
+		    return dto;
+}
 }

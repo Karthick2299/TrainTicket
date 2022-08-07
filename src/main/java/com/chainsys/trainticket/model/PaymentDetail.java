@@ -4,7 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,7 +15,7 @@ import javax.persistence.Table;
 public class PaymentDetail {
 	@Id
 	@Column(name="ticket_no")
-	private float ticketNo;
+	private int ticketNo;
 	@Column(name="user_id")
 	private String userId;
 	@Column(name="receipt_no")
@@ -25,10 +28,20 @@ public class PaymentDetail {
 	private String paymentDetails ;
 	@Column(name="payment_date")
 	private Date paymentDate; 
-	public float getTicketNo() {
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name ="ticket_no", nullable = false, insertable = false, updatable = false)
+    private Ticket ticket;
+	
+	public Ticket getTicket() {
+		return ticket;
+	}
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+	public int getTicketNo() {
 		return ticketNo;
 	}
-	public void setTicketNo(float ticketNo) {
+	public void setTicketNo(int ticketNo) {
 		this.ticketNo = ticketNo;
 	}
 	public String getUserId() {

@@ -1,10 +1,14 @@
 package com.chainsys.trainticket.model;
-
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -22,8 +26,34 @@ public class TrainDetail {
 	private String destination;
 	@Column(name="arrival_time")
 	private Timestamp arrivalTime;
+	
 	@Column(name=" departure_time")
 	private Timestamp departureTime;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="start_place",nullable=false,insertable=false,updatable=false)
+	private Station station;
+	@OneToMany(mappedBy="trainDetail",fetch=FetchType.LAZY)
+	private List<TicketFare> ticketFare;
+	private List<Ticket> ticket;
+	
+	public List<Ticket> getTicket() {
+		return ticket;
+	}
+	public void setTicket(List<Ticket> ticket) {
+		this.ticket = ticket;
+	}
+	public List<TicketFare> getTicketFare() {
+		return ticketFare;
+	}
+	public void setTicketFare(List<TicketFare> ticketFare) {
+		this.ticketFare = ticketFare;
+	}
+	public Station getStation() {
+		return station;
+	}
+	public void setStation(Station station) {
+		this.station = station;
+	}
 	public int getTrainNo() {
 		return trainNo;
 	}
@@ -60,8 +90,5 @@ public class TrainDetail {
 	public void setDepartureTime(Timestamp departureTime) {
 		this.departureTime = departureTime;
 	}
-	
-	
-
-	
 }
+	

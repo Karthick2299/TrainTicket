@@ -11,7 +11,7 @@
 <body>
 <div id="root">
 		<div id="form">
-		<form:form action="newticketdetail" method="post" modelAttribute="addticketdetil">
+		<form:form action="newticketdetail" method="post" modelAttribute="addticketdetail">
 				<div>
 					<label for="ticketNo">Ticket Number</label>
 					<div>
@@ -31,9 +31,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="age"> Age</label>
+					<label for="dob"> Date Of Birth</label>
 					<div>
-						<form:input path="age" />
+						<form:input path="dob" />
 					</div>
 				</div>
 				

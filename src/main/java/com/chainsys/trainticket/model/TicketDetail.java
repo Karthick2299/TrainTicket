@@ -1,5 +1,7 @@
 package com.chainsys.trainticket.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,24 +11,24 @@ import javax.persistence.Table;
 @Table(name="ticketdetails")
 public class TicketDetail {
 	@Id
-	@Column(name="ticket_no")
-	private float ticketNo;
+	@Column(name="Ticket_No")
+	private int ticketNo;
 	@Column(name="seat_no")
 	private int seatNo;
 	@Column(name="passengername")
 	private String passengerName;
-	@Column(name="age")
-	private int age;
-	@Column(name="gender")
+	@Column(name="Date_Of_Birth")
+	private Date dob;
+	@Column(name="Gender")
 	private String gender;
-	@Column(name="nationality")
+	@Column(name="Nationality")
 	private String nationality;
 	
 	
-	public float getTicketNo() {
+	public int getTicketNo() {
 		return ticketNo;
 	}
-	public void setTicketNo(float ticketNo) {
+	public void setTicketNo(int ticketNo) {
 		this.ticketNo = ticketNo;
 	}
 	public int getSeatNo() {
@@ -41,11 +43,11 @@ public class TicketDetail {
 	public void setPassengerName(String passengerName) {
 		this.passengerName = passengerName;
 	}
-	public int getAge() {
-		return age;
+	public Date getDob() {
+		return dob;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
 	public String getGender() {
 		return gender;

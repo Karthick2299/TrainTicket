@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.trainticket.dto.TicketAndPaymentDetailDTO;
 import com.chainsys.trainticket.model.Ticket;
 import com.chainsys.trainticket.service.TicketService;
 
@@ -63,5 +64,12 @@ public class TicketController {
 		model.addAttribute("getticketbyid", ur);
 		return "find-ticket-by-id";
 	}
+	@GetMapping("/getticketandpayment")
+    public String getTicketAndPayment(@RequestParam("ticketNum") int ticketNum,Model model){
+		TicketAndPaymentDetailDTO dto=ticketservice.getTicketAndPaymentDetailDTO(ticketNum);
+        model.addAttribute("ticket",dto.getTicket());
+        model.addAttribute("paymentdetail",dto.getPaymentDetail());
+        return "list-ticket-payment-detail-form";
+    }
 
 }

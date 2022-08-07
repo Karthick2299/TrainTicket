@@ -31,9 +31,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="age"> Age</label>
+					<label for="dob"> Date Of Birth</label>
 					<div>
-						<form:input path="age" />
+						<form:input path="dob" />
 					</div>
 				</div>
 				
