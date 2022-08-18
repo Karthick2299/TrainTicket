@@ -18,6 +18,6 @@ public interface TicketRepository extends CrudRepository<Ticket,Integer> {
 	
 	List<Ticket> findByTrainNo(int id);
 	
-	List<Ticket> findByUserId(String number);
+	List<Ticket> findByUserId(int username);
 	
 }

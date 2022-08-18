@@ -3,10 +3,13 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Station And Train Details</title>
+<style type="text/css">
+div{text-align: center;}
+</style>
 </head>
 <body>
 <div id="root">
@@ -34,6 +37,7 @@
 		</form:form>
 </div>
 </div>
+<br><br>
 <div id="table root">
 		<table border="2" width="100%" cellpadding="2">
 			<thead>
@@ -44,7 +48,7 @@
 					<th>Destination</th>
 					<th>Arrival Time</th>
 					<th>Departure Time</th>
-					
+					<th>Fare Checking</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -56,6 +60,8 @@
 						<td>${trnd.destination}</td>
 						<td>${trnd.arrivalTime}</td>
 						<td>${trnd.departureTime}</td>
+						<td> <button onclick="document.location='/ticketfare/getticketfarebyno?TrainNo=${trnd.trainNo}'" class=movecenter>Check Fare</button>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

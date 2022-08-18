@@ -2,19 +2,18 @@ package com.chainsys.trainticket.dto;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import com.chainsys.trainticket.model.Ticket;
 import com.chainsys.trainticket.model.User;
 
 public class UserAndTicketDTO {
-	private Optional<User> user;
+	private User user;
 	private List<Ticket> ticket = new ArrayList<Ticket>();
-	public Optional<User> getUser() {
+	public User getUser() {
 		return user;
 	}
-	public void setUser(Optional<User> user) {
-		this.user = user;
+	public void setUser(User user2) {
+		this.user = user2;
 	}
 	public List<Ticket> getTicket() {
 		return ticket;

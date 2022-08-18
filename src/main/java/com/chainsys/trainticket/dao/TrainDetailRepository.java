@@ -18,5 +18,7 @@ public interface TrainDetailRepository extends CrudRepository<TrainDetail,Intege
  	
  	List<TrainDetail> findByStartPlace(String name);
  	
+ 	List<TrainDetail> findByDestination(String value);
+ 	
 
 }

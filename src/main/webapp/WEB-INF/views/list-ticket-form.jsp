@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Ticket list</title>
@@ -24,6 +24,7 @@
 					<th>Destination Station</th>
 					<th>Boarding Time</th>
 					<th>Arrival Time</th>
+					<th>Confirm Your Ticket</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -41,6 +42,7 @@
 						<td>${tkt.destinationStation}</td>
 						<td>${tkt.boardingTime}</td>
 						<td>${tkt.arrivalTime}</td>
+						<td><a href="/paymentdetail/addform">Pay And Confirm</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

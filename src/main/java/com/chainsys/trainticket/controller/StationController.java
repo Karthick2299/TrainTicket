@@ -3,9 +3,12 @@ package com.chainsys.trainticket.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,13 +25,13 @@ public class StationController {
 	@Autowired
 	StationService stservice;
 	
-	@GetMapping("/list")
+	@GetMapping("/liststation")
 	public String getStations(Model model) {
 		List<Station> theSt =stservice.getStations();
 		model.addAttribute("allstations", theSt);
 		return "list-station";
 	}
-	@GetMapping("/addform")
+	@GetMapping("/addstationform")
 	public String showAddForm(Model model) {
 		Station theSn = new Station();
 		model.addAttribute("newstation", theSn);
@@ -36,11 +39,19 @@ public class StationController {
 	}
 
 	@PostMapping("/addstation")
-	public String addstation(@ModelAttribute("newstation") Station theSn) {
+	public String addstation(@Valid @ModelAttribute("newstation") Station theSn,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-station-form";
+		}
 		stservice.save(theSn);
-		return "redirect:/station/list";
+		return "redirect:/station/liststation";
 	}
-	@GetMapping("/updateform")
+	@GetMapping("/modifystation")
+	public String updateUser() {
+	   
+		return "modifystationform";
+	}
+	@GetMapping("/updatestationform")
 	public String showUpdateForm(@RequestParam("stationId") String id, Model model) {
 		Optional<Station> theSn = stservice.findByid(id);
 		model.addAttribute("updatestn", theSn);
@@ -48,14 +59,27 @@ public class StationController {
 	}
 
 	@PostMapping("/updatestation")
-	public String modifystation(@ModelAttribute("updatestn") Station theSn) {
+	public String modifystation(@Valid @ModelAttribute("updatestn") Station theSn,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-station-form";
+		}
 	 stservice.save(theSn);
-		return "redirect:/station/list";
+		return "redirect:/station/liststation";
   }
+	@GetMapping("/removestation")
+	public String updateStation() {
+	   
+		return "deletestationform";
+	}
 	@GetMapping("/deletestation")
 	public String deletestation(@RequestParam(name = "stationId") String id) {
 		stservice.deleteById(id);
-		return "redirect:/station/list";
+		return "redirect:/station/liststation";
+	}
+	@GetMapping("/findstation")
+	public String findStation() {
+	   
+		return "findstationform";
 	}
 
 	@GetMapping("/getstationbyid")
@@ -64,8 +88,20 @@ public class StationController {
 		model.addAttribute("getuserbystnid", sn);
 		return "find-station-by-id";
 	}
+	@GetMapping("/findstationstartplace")
+	public String findStationStartPlace() {
+	   
+		return "station-startplace-form";
+	}
 	@GetMapping("/getstationstartplace")
 	public String getStationAndTrainDetail(@RequestParam("name")String name,Model model) {
+		StationAndTrainDetailDTO dto=stservice.getStationAndTrainDetailDTO(name);
+		model.addAttribute("station",dto.getStation());
+		model.addAttribute("traindetail",dto.getTraindetail());
+		return "station-train-detail";
+	}
+	@GetMapping("/getstationdestination")
+	public String getStationAndTrainDetailDestination(@RequestParam("name")String name,Model model) {
 		StationAndTrainDetailDTO dto=stservice.getStationAndTrainDetailDTO(name);
 		model.addAttribute("station",dto.getStation());
 		model.addAttribute("traindetail",dto.getTraindetail());

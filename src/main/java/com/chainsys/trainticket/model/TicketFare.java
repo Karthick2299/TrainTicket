@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name=" Ticket_fare")
@@ -16,10 +18,15 @@ public class TicketFare {
 	@Id
 	@Column(name="train_no")
 	private int trainNo;
+	
 	@Column(name="max_seats")
+	@NotBlank(message = "*Please put the Seat Capacity")
 	private float maxSeats;
+	
 	@Column(name="seat_class")
+	@NotBlank(message = "Please Enter Seat Class")
 	private String seatClass;
+	
 	@Column(name="fare")
 	private int fare;
 	

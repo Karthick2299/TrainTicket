@@ -1,19 +1,20 @@
 package com.chainsys.trainticket.dao;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
 import com.chainsys.trainticket.model.User;
 
-public interface UserRepository extends CrudRepository<User,String> {
-	Optional<User> findById(String id);
+public interface UserRepository extends CrudRepository<User,Integer> {
+	User findById(int id);
 	
-	User save(Optional<User> ur);
+	User save(User ur);
 	
-	void deleteById(String id);
+	void deleteById(int id);
 	
 	List<User> findAll(); 
+	
+	User findByUserNameAndUserPassword(String id,String Password);
 	
 }

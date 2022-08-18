@@ -2,7 +2,6 @@ package com.chainsys.trainticket.service;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -36,17 +35,17 @@ public class UserService {
 	{
 		return userrepo.save(theUr);
 	}
-	public Optional<User> findByid(String id)
+	public User findByid(int id)
 	{
 	return userrepo.findById(id);
 	}
 	@Transactional
-	public void deleteById(String id)
+	public void deleteById(int id)
 	{
 		userrepo.deleteById(id);
 	}
-	public UserAndTicketDTO getUserAndTicketDTO(String username) {
-		Optional<User> user = userrepo.findById(username);
+	public UserAndTicketDTO getUserAndTicketDTO(int username) {
+		User user = userrepo.findById(username);
 		UserAndTicketDTO dto = new UserAndTicketDTO();
 		dto.setUser(user);
 		List<Ticket> ticket = ticketrepo.findByUserId(username);
@@ -56,18 +55,20 @@ public class UserService {
 		}
 		return dto;
 	}
-	public UserAndPaymentDetailDTO getUserAndPaymentDetailDTO(String name) {
-		Optional<User> user = userrepo.findById(name);
+	public UserAndPaymentDetailDTO getUserAndPaymentDetailDTO(int  value) {
+		User user = userrepo.findById(value);
 		UserAndPaymentDetailDTO dto1 = new UserAndPaymentDetailDTO();
 		dto1.setUser(user);
-		List<PaymentDetail> paymentdetail = paymentrepo.findByUserId(name);
+		List<PaymentDetail> paymentdetail = paymentrepo.findByUserId(value);
 		Iterator<PaymentDetail> itr = paymentdetail.iterator();
 		while(itr.hasNext()) {
 			dto1.addPaymentDetail((PaymentDetail)itr.next());
 		}
 		return dto1;
 	}
-
+	public User getUserByNameAndPassword(String id,String password) {
+        return userrepo.findByUserNameAndUserPassword(id, password);
+    }
 
 
 }

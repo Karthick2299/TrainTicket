@@ -1,12 +1,15 @@
 package com.chainsys.trainticket.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.trainticket.compositekey.PaymentDetailCompositeKey;
+import com.chainsys.trainticket.compositekey.TicketDetailCompositeKey;
 import com.chainsys.trainticket.dao.TicketDetailRepository;
 import com.chainsys.trainticket.model.TicketDetail;
 
@@ -25,14 +28,17 @@ public class TicketDetailService {
 		{
 			return ticketdetailrepo.save(td);
 		}
-		public TicketDetail findByid(int id)
+		public Optional<TicketDetail> findByid(TicketDetailCompositeKey ticketdetailcompositeKey)
 		{
-		return ticketdetailrepo.findById(id);
+		return ticketdetailrepo.findById(ticketdetailcompositeKey);
 		}
 		@Transactional
-		public void deleteById(int id)
+		public void deleteById(TicketDetailCompositeKey ticketDetailCompositeKey)
 		{
-			ticketdetailrepo.deleteById(id);
+			ticketdetailrepo.deleteById(ticketDetailCompositeKey);
+		}
+		public List<TicketDetail> findByTicketNo(int id){
+			return ticketdetailrepo.findByTicketNo(id);
 		}
 
 }

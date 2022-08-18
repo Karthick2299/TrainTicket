@@ -51,4 +51,15 @@ public class StationService {
 			}
 			return dto;
 		}
+		public StationAndTrainDetailDTO getStationAndTrainDetailDestinationDTO (String name) {
+			Optional<Station> station1 = stationrepo.findById(name);
+			StationAndTrainDetailDTO dto = new StationAndTrainDetailDTO();
+			dto.setStation(station1);
+			List<TrainDetail> traindetail1 = trainrepo.findByDestination(name);
+			Iterator<TrainDetail> itr = traindetail1.iterator();
+			while(itr.hasNext()) {
+				dto.addTrainDetail((TrainDetail)itr.next());
+			}
+			return dto;
+		}
 }

@@ -1,32 +1,52 @@
 package com.chainsys.trainticket.model;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
+import com.chainsys.trainticket.compositekey.PaymentDetailCompositeKey;
 
 @Entity
 @Table(name="paymentdetails")
+@IdClass(PaymentDetailCompositeKey.class)
 public class PaymentDetail {
 	@Id
 	@Column(name="ticket_no")
+//	@NotBlank(message = "*Please Enter a number")
 	private int ticketNo;
+	
 	@Column(name="user_id")
-	private String userId;
+	private int userId;
+	
 	@Column(name="receipt_no")
+    @Min(value = 0,message="*value should be greater than 0")
 	private String receiptNo ;
+	
 	@Column(name="amount")
 	private int amount;
+	
 	@Column(name="mode_of_payment")
+	@NotBlank(message = "*Please Select Payment Mode")
 	private String modeOfPayment ;
+	
 	@Column(name="payment_details")
+	@NotEmpty(message = "Please Enter Payment Details")
+	@Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String paymentDetails ;
+	
 	@Column(name="payment_date")
 	private Date paymentDate; 
 	@OneToOne(fetch = FetchType.LAZY)
@@ -53,10 +73,11 @@ public class PaymentDetail {
 	public void setTicketNo(int ticketNo) {
 		this.ticketNo = ticketNo;
 	}
-	public String getUserId() {
+	
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getReceiptNo() {

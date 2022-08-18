@@ -2,14 +2,17 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Payment Detail</title>
+<style type="text/css">
+div{text-align: center;}
+</style>
 </head>
 <body>
 <div id="table root">
-		<table>
+		<table  border="2" width="100%" cellpadding="2">
 			<thead>
 				<tr>
 					<th>Ticket Number</th>

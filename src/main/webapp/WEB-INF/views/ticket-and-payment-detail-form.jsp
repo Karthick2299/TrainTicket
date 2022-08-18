@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>list Ticket Payment Detail form</title>
@@ -93,18 +93,8 @@
 	<div id="root">
 		<div id="form">
 		<form:form  method="post" modelAttribute="paymentdetail">
-				<div>
-					<label for="ticketNo">Ticket Number</label>
-					<div>
-						<form:input path="ticketNo" />
-					</div>
-				</div>
-				<div>
-					<label for="userId"> User Id</label>
-					<div>
-						<form:input path="userId" />
-					</div>
-				</div>
+				
+				
 				<div>
 					<label for="receiptNo">Receipt Number</label>
 					<div>
