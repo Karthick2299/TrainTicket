@@ -12,7 +12,7 @@ body {
 	font-size: 20px;
 	color: crimson;
 	margin-top: 8px;
-	background-color: wheat;;
+	background-color: wheat;
 	margin-left: 2px;
 	border-radius: 10px;
 	height: 41px;
@@ -62,8 +62,4 @@ h3{
     height: 559px;
     margin-top: 44px;
     backdrop-filter: blur(2px);
-}
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
 }
