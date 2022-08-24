@@ -9,8 +9,7 @@
 <body>
 <h3>Find Payment</h3>
     <br>
-    <form action="/paymentdetail/getpaymentbyno" method="get"
-        style="margin: 0;">
+    <form action="/paymentdetail/getpaymentbyno" method="get" style="margin: 0;">
         <label>Enter Ticket Number </label> <input type="text" placeholder="Ticket Number"
             name="ticketNo"> 
             <label>Enter Your Id</label> <input type="text" placeholder="Your Id"

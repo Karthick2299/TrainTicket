@@ -9,13 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.trainticket.compositekey.PaymentDetailCompositeKey;
+import com.chainsys.trainticket.compositekey.TicketFareCompositeKey;
 import com.chainsys.trainticket.dao.PaymentDetailRepository;
+import com.chainsys.trainticket.dao.TicketFareRepository;
 import com.chainsys.trainticket.model.PaymentDetail;
+import com.chainsys.trainticket.model.Ticket;
+import com.chainsys.trainticket.model.TicketFare;
 
 @Service
 public class PaymentDetailService {
 	 @Autowired
 	 private  PaymentDetailRepository paymentdetailrepo;
+	 @Autowired
+	 private TicketService ticketservice;
+	 @Autowired
+	 private TicketFareRepository ticketFareService;
 	 
 	 public List<PaymentDetail>getPaymentDetails(){
 		 List<PaymentDetail> listSt = paymentdetailrepo.findAll();
@@ -35,5 +43,12 @@ public class PaymentDetailService {
 		{
 			paymentdetailrepo.deleteById(id);
 		}
-
+public float getTotalAmount(int noOfPassengers,int ticketNo) {
+			float totalAmount=0;
+			Ticket ticket=ticketservice.findByid(ticketNo);
+			TicketFareCompositeKey ticketFareCompositeKey=new TicketFareCompositeKey(ticket.getTrainNo(),ticket.getSeatClass());
+			Optional<TicketFare> ticketfare=ticketFareService.findById(ticketFareCompositeKey);
+			totalAmount=(ticketfare.get().getFare())*noOfPassengers;
+		return totalAmount;
+		}
 }

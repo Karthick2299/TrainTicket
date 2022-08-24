@@ -1,10 +1,13 @@
 package com.chainsys.trainticket.compositekey;
 
-public class TicketFareCompositeKey {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class TicketFareCompositeKey implements Serializable {
 	private int trainNo;
 	private String seatClass;
 	
-	TicketFareCompositeKey(){
+	public TicketFareCompositeKey(){
 		
 	}
 	public TicketFareCompositeKey(int num,String value) {
@@ -12,6 +15,21 @@ public class TicketFareCompositeKey {
 		this.seatClass=value;
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(seatClass, trainNo);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TicketFareCompositeKey other = (TicketFareCompositeKey) obj;
+		return Objects.equals(seatClass, other.seatClass) && trainNo == other.trainNo;
+	}
 	public int getTrainNo() {
 		return trainNo;
 	}

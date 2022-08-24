@@ -1,0 +1,89 @@
+@charset "ISO-8859-1";
+
+body {
+    background-image:url("https://wallpaperaccess.com/full/1457225.jpg"); 
+	background-attachment: fixed;
+	background-size:  cover;
+	background-repeat: no-repeat;
+   
+}
+
+tr:hover {
+    background-color: skyblue;
+}
+
+tr {
+    color: white;
+    font-weight: 900;
+}
+
+h1 {
+   color: #ff0080;
+    text-align: center;
+    background-color: turquoise;
+    height: 43px;
+    width: 289px;
+    margin-top: -114px;
+    margin-left: 51px;
+    border-radius: 10px;
+}
+h1:hover{
+    background-color: #37c8ab;
+}
+
+table, td {
+    border: 1px solid black;
+    padding: 21px;
+    text-align: center;
+    margin-left: -87px;
+    margin-top: -56px;
+}
+teble, th{
+	font-size: 24px;
+    border: 1px solid black;
+    padding: 25px;
+    text-align: center;
+    margin-left: 338px;
+    margin-top: -35px;
+    color: midnightblue;
+}
+
+.button2 {
+    margin-left: 83%; 
+}
+
+.button3 {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 20px;
+    color: crimson;
+    margin-top:8px;
+    background-color: wheat;
+    margin-left: 2px;
+    border-radius: 10px;
+    height: 41px;
+    width: 38px;
+     
+}
+.but {
+    font-size: 22px;
+    height: 35px;
+    width: 318px;
+    background-color: #000000;
+    color: deeppink;
+    }
+.box {
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 8px 6px 42px #000;
+    margin: auto;
+    padding: 10%;
+    text-align: center;
+    float: center;
+    font-weight: 400;
+    width: 417px;
+    height: 50%;
+    margin-top: 28px;
+    backdrop-filter: blur(3px);
+    }

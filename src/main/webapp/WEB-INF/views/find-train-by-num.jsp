@@ -7,10 +7,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Train By Number</title>
+<style><%@include file ="/WEB-INF/views/css/findtrain.css"%>
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="root">
-		<div id="form">
+<div id="root" class="box">
+		<h2>Train Detail</h2>
+		<div id="form" class="detail">
 		<form:form  method="post" modelAttribute="gettrainbynum">
 				<div>
 					<label for="trainNo">Train Number</label>
@@ -51,6 +55,11 @@
 				</div>
 		</form:form>
 	</div>
+	</div>
+	<div>
+		<a href="/user/useraccessa"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
 	</div>
 </body>
 </html>

@@ -6,9 +6,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>find ticket</title>
+<style><%@include file ="/WEB-INF/views/css/updateticket.css"%>
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<div id="root">
+	<div id="root" class="box1">
+	<h3>Your Ticket Details</h3>
 		<div id="form">
 			<form:form method="post" modelAttribute="getticketbyid">
 				<div>
@@ -86,6 +90,11 @@
 				</div>
 			</form:form>
 		</div>
+	</div>
+	<div>
+		<a href="/user/useraccessa"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
 	</div>
 </body>
 </html>

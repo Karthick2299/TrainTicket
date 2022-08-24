@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.trainticket.compositekey.PaymentDetailCompositeKey;
 import com.chainsys.trainticket.compositekey.TicketDetailCompositeKey;
 import com.chainsys.trainticket.model.TicketDetail;
 

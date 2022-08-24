@@ -7,22 +7,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Ticket</title>
-<style type="text/css">
-.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
+<style><%@include file ="/WEB-INF/views/css/updateticket.css"%>
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<div id="root">
+<div id="root" class="box1">
+ <h3>Update Your Ticket</h3>
 		<div id="form">
 			<form:form action="updatetk" method="post"
 				modelAttribute="updateticket">
 				<div>
 					<label for="userId">User Id</label>
 					<div>
-						<form:input path="userId" />
+						<form:input path="userId" readonly="true"/>
 					</div>
 				</div>
 				<form:errors path="userId" cssClass="text-danger" />
@@ -68,14 +66,14 @@
 				<div>
 					<label for="boardingStation">Boarding Station</label>
 					<div>
-						<form:input path="boardingStation" title="Enter Boarding Station" pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						<form:input path="boardingStation" title="Enter Boarding Station" pattern="^[A-Za-z]\\w{1,10}$" required="true"/>
 					</div>
 				</div>
 				<form:errors path="boardingStation" cssClass="text-danger" />
 				<div>
 					<label for="destinationStation">Destination Station</label>
 					<div>
-						<form:input path="destinationStation" title="Enter Destination Station" pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						<form:input path="destinationStation" title="Enter Destination Station" pattern="^[A-Za-z]\\w{1,10}$" required="true"/>
 					</div>
 				</div>
 				<form:errors path="destinationStation" cssClass="text-danger" />
@@ -90,12 +88,17 @@
 					<div>
 						<form:input path="arrivalTime" type="time" required="true"/>
 					</div>
-				</div>
+				</div><br>
 				<div>
 					<form:button>Update Ticket</form:button>
 				</div>
 			</form:form>
 		</div>
+	</div>
+	 <div>
+		<a href="/user/useraccessa"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
 	</div>
 </body>
 </html>

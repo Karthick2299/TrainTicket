@@ -8,18 +8,19 @@ import com.chainsys.trainticket.model.TrainDetail;
 
 public class TrainDetailAndTicketFareDTO {
 	private TrainDetail traindetail;
-	private List<TicketFare> ticketfare = new ArrayList<TicketFare>();
+	private List<TicketFare> ticketfare = new ArrayList<>();
 	public TrainDetail getTraindetail() {
 		return traindetail;
 	}
 	public void setTraindetail(TrainDetail traindetail) {
 		this.traindetail = traindetail;
 	}
-	public List<TicketFare> getTicketFare() {
+	
+	public List<TicketFare> getTicketfare() {
 		return ticketfare;
 	}
-	public void addTicketFare(TicketFare TicketFare) {
-		ticketfare.add(TicketFare);
+	public void addTicketFare(TicketFare ticketFare) {
+		ticketfare.add(ticketFare);
 	}
 	
 	

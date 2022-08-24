@@ -6,13 +6,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Payment Detail</title>
-<style type="text/css">
-div{text-align: center;}
+<style><%@include file ="/WEB-INF/views/css/admincontrol.css"%>
 </style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
-<div id="table root">
-		<table  border="2" width="100%" cellpadding="2">
+<div id="table root" class="align">
+		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Ticket Number</th>
@@ -39,6 +40,11 @@ div{text-align: center;}
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
+	<div>
+		<a href="/admin/adminaccess"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
 	</div>
 </body>
 </html>

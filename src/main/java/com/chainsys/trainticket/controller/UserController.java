@@ -1,6 +1,8 @@
 package com.chainsys.trainticket.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,7 @@ public class UserController {
 			return "add-user-form";
 		}
 		urservice.save(theUr);
+		System.out.println("Registered Successfully");
 		return "redirect:/user/userloginform";
 	}
 
@@ -118,12 +121,13 @@ public class UserController {
 	}
 
 	@PostMapping("/checkuserloginform")
-	public String checkingAccess(@ModelAttribute("userlogin") User user) {
+	public String checkingAccess(@ModelAttribute("userlogin") User user,HttpSession session,Model model) {
 		User userlogin = urservice.getUserByNameAndPassword(user.getUserName(), user.getUserPassword());
 		if (userlogin != null) {
-			
+			session.setAttribute("userId", userlogin.getUserId());
 			return "user-access";
 		} else
+			
 			return "user-relogin";
 
 	}
@@ -131,6 +135,16 @@ public class UserController {
 	public String getUserAccess(Model model) {
 		
 		return "user-access";
+	}
+	@GetMapping("/submitbut")
+	public String getSubmit(Model model) {
+		
+		return "submit";
+	}
+	@GetMapping("/return")
+	public String getreturn(Model model) {
+		
+		return "redirect:/";
 	}
 
 }

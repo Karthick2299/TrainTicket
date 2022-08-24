@@ -5,16 +5,26 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>train</title>
+<title>Re login</title>
 <style>
 * {
 	box-sizing: border-box;
 }
 
 body {
-	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsl4kA9gXajPE0_wlTJdB4ITIsplk7HPvDEQ&usqp=CAU);
-	background-size: cover; 
-	background-repeat:no-repeat;
+	background-image:
+		url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsl4kA9gXajPE0_wlTJdB4ITIsplk7HPvDEQ&usqp=CAU);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+h4{
+font-size: larger;
+    color: red;
+    margin-top: 61px;
+    text-align: center;
+    text-align: 18px;
+    margin-bottom: -82px;
+    margin-left: -59px;
 }
 
 .main {
@@ -88,39 +98,63 @@ a:link {
 footer {
 	margin-top: 15%;
 }
-h3 {
-	color: #eb3434;
-	text-align: center;
-}
-.button {
-    margin-top: 10px;
-    width: 130px;
-    height: 38px;
-    font-size: 15px;
-    background-color: deepskyblue;
-    border: 2px solid blue;
-    border-radius: 5px;
-}
+.button{
+	margin-top: 10px;
+    width: 164px;
+    height: 32px;
+    font-size: 16px;
+    background-color: cyan;
+    border: 2pxsolidblue;
+    border-radius: 5px;
 
+}
+.center {
+	margin-top: 150px;
+	margin-right: 50px;
+}
+.back{
+   float: right;
+   font-size: 15px;
+    margin-top: 10px;
+    color: black;
+   }
+.button3 {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 20px;
+    color: crimson;
+    margin-top:8px;
+    background-color: black;
+    margin-left: 2px;
+    border-radius: 10px;
+    height: 41px;
+    width: 38px;
+     
+}      
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	
-	<h3>User Id and Password Not Found </h3>
-
-	<div class="tab green">User Login</div>
-	<form action="checkuserloginform" class="tab brown" method="post"
-		modelattribute="userlogin">
-		<br />UserName: <input type="text" name="userName"><br />
-		<br /> Password: <input type="password" name="userPassword"><br />
-		<br /> <input type="submit" value=" LOGIN "><br />
+<h4>User Name And Password Not Found</h4>
+	<div class="tab green center">User Login</div>
+	<form action="checkuserloginform" class="tab brown" method="post" modelattribute="userlogin">
+		<br />UserName: <input type="text" name="userName"><br /> <br />
+		Password: <input type="password" name="userPassword"><br /> <br />
+		<input type="submit" value=" LOGIN "><br />
 		<div>
 			<h3>
-				<button class="button"><a href="/user/addform">Create New Account </a></button>
+				<button class="button">
+					<a href="/user/addform">Create New Account </a>
+				</button>
 			</h3>
 		</div>
 	</form>
 	<br />
-</body>
+	<div>
+		<a href="/"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
+	</div>
 </body>
 </html>

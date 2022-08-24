@@ -18,12 +18,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chainsys.trainticket.dto.StationAndTrainDetailDTO;
 import com.chainsys.trainticket.model.Station;
 import com.chainsys.trainticket.service.StationService;
+import com.chainsys.trainticket.service.TicketFareService;
 
 @Controller
 @RequestMapping("/station")
 public class StationController {
 	@Autowired
 	StationService stservice;
+	@Autowired
+	TicketFareService ticketFareService;
 	
 	@GetMapping("/liststation")
 	public String getStations(Model model) {

@@ -1,0 +1,66 @@
+@charset "ISO-8859-1";
+body {
+	background-image:url("https://wallpaperaccess.com/full/1457225.jpg"); 
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.place {
+	text-align: center;
+    color: darkred;
+    font-size: 29px;
+    text-decoration: underline;
+    margin-top: 17px;
+}
+.code{
+	color: aqua;
+    text-align: center;
+    font-size: 29px;
+}
+.submit{
+	font-size: 60px;
+}
+.button3 {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 20px;
+    color: crimson;
+    margin-top:8px;
+    background-color: wheat;;
+    margin-left: 2px;
+    border-radius: 10px;
+    height: 41px;
+    width: 38px;
+     
+}  
+
+label {
+   color: cyan;
+    font-size: 21px;
+    display: flex;
+    margin: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    margin-top: 10px;
+    text-align: center;
+    float: center;
+    margin-left: 122px;
+}
+
+
+.box {
+   overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 8px 6px 42px #000;
+    margin: auto;
+    padding: 1px;
+    text-align: center;
+    float: center;
+    font-weight: 400;
+    width: 417px;
+    height: 312px;
+    margin-top: 139px;
+    backdrop-filter: blur(6px);
+    }

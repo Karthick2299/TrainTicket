@@ -6,10 +6,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ticket Detail List</title>
+<style><%@include file ="/WEB-INF/views/css/admincontrol.css"%>
+</style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
-<div id="table root">
-		<table  border="2" width="100%" cellpadding="2">
+<div id="table root" class="align">
+		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Ticket Number</th>
@@ -34,6 +38,11 @@
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
+	<div>
+		<a href="/admin/adminaccess"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
 	</div>
 </body>
 </html>

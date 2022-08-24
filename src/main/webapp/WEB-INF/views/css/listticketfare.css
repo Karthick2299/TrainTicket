@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+body {
+    background-image:url("https://wallpaperaccess.com/full/1457225.jpg"); 
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+   
+}
+table {
+  font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin: auto;
+   
+}
+table th{
+	border: 1px solid black;
+	color: cyan;
+
+}
+
+table td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+  color: white;
+}
+
+ tr:hover{
+  background-color: lightgrey;
+} 
+h2{
+	    color: mediumblue;
+    font-size: 30px;
+    margin-left: 16px;
+}
+.button3 {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 20px;
+    color: crimson;
+    margin-top:8px;
+    background-color: wheat;;
+    margin-left: 2px;
+    border-radius: 10px;
+    height: 41px;
+    width: 38px;
+}
+.box {
+   overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 8px 6px 42px #000;
+    margin: auto;
+    padding: 56px;
+    text-align: center;
+    float: center;
+    font-weight: 400;
+    width: 417px;
+    height: 312px;
+    margin-top: 77px;
+    backdrop-filter: blur(2px);
+    }
+  .container{
+    font-size: 17px;
+    width: max-content;
+  }

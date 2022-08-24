@@ -7,15 +7,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update User</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
+<style><%@include file ="/WEB-INF/views/css/userprofile.css"%>
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="root">
+<div id="root" class="box1">
+	<h3>Update Your Details</h3>
 		<div id="form">
 			<form:form action="updateur" method="post" modelAttribute="updateuser">
 				<div>
@@ -90,6 +88,11 @@
 		</div>
 		</form:form>
 	</div>
+	</div>
+	<div>
+		<a href="/user/useraccessa"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
 	</div>
 </body>
 </html>

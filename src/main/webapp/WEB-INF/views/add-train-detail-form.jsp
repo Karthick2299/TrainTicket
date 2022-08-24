@@ -7,13 +7,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Train Detail </title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
+<style><%@include file ="/WEB-INF/views/css/admincontrol.css"%>
 </style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 <div id="root">
 		<div id="form">
@@ -68,6 +65,11 @@
 		        </div>
 		</form:form>
 	</div>
+	</div>
+	<div>
+		<a href="/admin/adminaccess"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
 	</div>
 
 </body>

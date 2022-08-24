@@ -7,13 +7,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Station And Train Details</title>
-<style type="text/css">
-div{text-align: center;}
+<style type="text/css"><%@include file ="/WEB-INF/views/css/stationtraindetail.css"%>
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+	
+      <h3>Station Detail</h3>
 <div id="root">
-		<div id="form">
+		<div id="form" class="main">
 		<form:form action="" method="post" modelAttribute="station">
 				<div>
 					<label for="stationId">Station Id</label>
@@ -38,7 +40,8 @@ div{text-align: center;}
 </div>
 </div>
 <br><br>
-<div id="table root">
+    <h3>Trains Detail</h3>
+<div id="table root" class="menu">
 		<table border="2" width="100%" cellpadding="2">
 			<thead>
 				<tr>
@@ -60,12 +63,17 @@ div{text-align: center;}
 						<td>${trnd.destination}</td>
 						<td>${trnd.arrivalTime}</td>
 						<td>${trnd.departureTime}</td>
-						<td> <button onclick="document.location='/ticketfare/getticketfarebyno?TrainNo=${trnd.trainNo}'" class=movecenter>Check Fare</button>
+						<td><a href="/ticketfare/listtktfare?trainNo=${trnd.trainNo}"><button class=movecenter>Check Fare</button></a>
 						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
+	<div>
+		<a href="/user/useraccessa"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
 	</div>
 </body>
 </html>

@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.trainticket.compositekey.PaymentDetailCompositeKey;
 import com.chainsys.trainticket.compositekey.TicketDetailCompositeKey;
 import com.chainsys.trainticket.dao.TicketDetailRepository;
 import com.chainsys.trainticket.model.TicketDetail;

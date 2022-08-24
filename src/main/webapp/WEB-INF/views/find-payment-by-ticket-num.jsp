@@ -11,7 +11,7 @@
 <body>
 <div id="root">
 		<div id="form">
-		<form:form  method="post" modelAttribute="newpayment">
+		<form:form  method="post" modelAttribute="getpaymentbytktno">
 				<div>
 					<label for="ticketNo">Ticket Number</label>
 					<div>

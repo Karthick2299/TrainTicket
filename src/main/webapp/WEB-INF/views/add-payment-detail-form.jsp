@@ -7,16 +7,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Payment Detail</title>
-<style type="text/css">
-div{text-align: center;}
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
+<style><%@include file ="/WEB-INF/views/css/payment.css"%>
 </style>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="root">
+<div id="root" class="box">
 		<div id="form">
 		<form:form action="addpayment" method="post" modelAttribute="newpayment">
 				<div>
@@ -46,11 +43,14 @@ div{text-align: center;}
 					</div>
 				</div>
 				<div>
-					<label for="modeOfPayment">Mode Of Payment</label>
-					<div>
-						<form:input path="modeOfPayment" title="Choose Payment" required="true"/>
-					</div>
-				</div>
+                    <label for="modeOfPayment">Mode of Payment</label>
+                    <br>
+                    <form:select path="modeOfPayment">
+                        <form:option value="Online" label="Online" required="true" />
+                        <form:option value="Offline" label="Offine" required="true" />
+                        
+                    </form:select>
+            </div>
 				<form:errors path="modeOfPayment" cssClass="text-danger" />
 				<div>
 					<label for="paymentDetails">Payment Detail</label>
@@ -67,11 +67,15 @@ div{text-align: center;}
 				</div>
 				<br>
 				<div>
-				<form:button> Pay Now</form:button>
+					<button type="submit" class="btn" onclick="openPopup()">Submit</button>
 		        </div>
 		</form:form>
 	</div>
 	</div>
-
+	<div>
+		<a href="/user/useraccessa"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
+	</div>
 </body>
 </html>

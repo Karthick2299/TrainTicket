@@ -8,112 +8,31 @@
 <meta charset="ISO-8859-1">
 <title>Login</title>
 <style>
-* {
-	box-sizing: border-box;
-}
-
-body {
-	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsl4kA9gXajPE0_wlTJdB4ITIsplk7HPvDEQ&usqp=CAU);
-	background-size: cover; 
-	background-repeat:no-repeat;
-}
-
-.main {
-	border: 1px blue solid;
-	background-color: yellow;
-	border-radius: 10px;
-	text-align: center;
-	margin-left: 22%;
-	margin-right: 33.3%;
-	padding: 10px;
-	margin-bottom: 10px;
-	width: 700px;
-	color: red;
-}
-
-.menu {
-	border: 1px black solid;
-	border-radius: 13px;
-	background-color: white;
-	color: green;
-	font-weight: bold;
-	font-size: 18px;
-	text-align: center;
-	margin-right: 15px;
-	padding: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
-	width: 130px;
-}
-
-a:hover {
-	color: red;
-}
-
-a:link {
-	color: green;
-	text-decoration: none;
-}
-
-.tab {
-	border: 1px black solid;
-	border-radius: 15px;
-	background-color: #FFE5CC;
-	margin-left: 30%;
-	width: 450px;
-	color: red;
-	font-weight: bold;
-	font-style: normal;
-	text-align: center;
-	font-size: 22px;
-	margin-bottom: 10px;
-	padding: 10px;
-}
-
-.yel {
-	color: yellow;
-}
-
-.red {
-	color: red;
-}
-
-.green {
-	color: green;
-}
-
-.brown {
-	color: brown;
-}
-
-footer {
-	margin-top: 15%;
-}
-.button {
-    margin-top: 10px;
-    width: 130px;
-    height: 38px;
-    font-size: 15px;
-    background-color: deepskyblue;
-    border: 2px solid blue;
-    border-radius: 5px;
-}
+<%@include file ="/WEB-INF/views/css/user.css"%>
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-	<div class="tab green">User Login</div>
+	
+	<div class="tab green center">User Login</div>
 	<form action="checkuserloginform" class="tab brown" method="post"
 		modelattribute="userlogin">
-		<br />UserName: <input type="text" name="userName"><br />
-		<br /> Password: <input type="password" name="userPassword"><br />
-		<br /> <input type="submit" value=" LOGIN "><br />
+		<br />UserName: <input type="text" name="userName"><br /> <br />
+		Password: <input type="password" name="userPassword"><br /> <br />
+		<input type="submit" value=" LOGIN "><br />
 		<div>
 			<h3>
-			<button class="button"><a href="/user/addform">Create New Account </a></button>	
+				<button class="button">
+					<a href="/user/addform">Create New Account </a>
+				</button>
 			</h3>
 		</div>
 	</form>
 	<br />
+	<div>
+		<a href="/"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
+	</div>
 </body>
 </html>

@@ -1,0 +1,70 @@
+@charset "ISO-8859-1";
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-image:
+    url(https://images.wallpaperscraft.com/image/single/train_railway_rails_171046_3840x2400.jpg);
+
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.header {
+	background-color: white;
+	/* text-align: left; */
+	padding: 30px;
+	color: darkred;
+	font-weight: bold;
+	font-size: 40px;
+	padding-left: 25px;
+	padding-bottom: 5px;
+	font-variant: small-caps;
+}
+
+.container {
+	background-color: white;
+	display: flex;
+}
+
+.main {
+	text-align: left;
+	margin-left: 41%;
+	/* margin-right: 33.3%; */
+	padding: 10px;
+	margin-bottom: 10px;
+	/* 	width: 700px; */
+	color: black;
+	/* float:right; */
+	display: flex;
+	text-decoration: none;
+}
+
+.menu {
+	border: 1px black solid;
+	border-radius: 13px;
+	background-color: white;
+	color:#ff33cc;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+	margin-right: 15px;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 130px;
+}
+
+.foot {
+	text-align: center;
+    color: cyan;
+    font-weight: bold;
+    font-size: 45px;
+    padding-left: 25px;
+
+}
+.text{
+text-decoration:none;
+color:black;
+}

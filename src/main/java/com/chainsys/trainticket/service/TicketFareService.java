@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.trainticket.compositekey.TicketFareCompositeKey;
 import com.chainsys.trainticket.dao.TicketFareRepository;
 import com.chainsys.trainticket.model.TicketFare;
 @Service
@@ -16,22 +17,25 @@ public class TicketFareService {
 	 private  TicketFareRepository ticketfarerepo;
 	 
 	 public List<TicketFare>getTicketFares(){
-		 List<TicketFare> listSt = ticketfarerepo.findAll();
-		 return listSt;
+		 return ticketfarerepo.findAll();
 	 }
 	 @Transactional
 		public TicketFare save(TicketFare tf)
 		{
 			return ticketfarerepo.save(tf);
 		}
-		public TicketFare findByid(int id)
+		public Optional<TicketFare> findByid(TicketFareCompositeKey ticketFareCompositeKey)
 		{
-		return ticketfarerepo.findById(id);
+		return ticketfarerepo.findById(ticketFareCompositeKey);
 		}
 		@Transactional
-		public void deleteById(int id)
+		public void deleteById(TicketFareCompositeKey theFare)
 		{
-			ticketfarerepo.deleteById(id);
+			ticketfarerepo.deleteById(theFare);
+		}
+		public List<TicketFare> findByTrainNo(int theFare)
+		{
+		 return	 ticketfarerepo.findByTrainNo(theFare);
 		}
 
 }

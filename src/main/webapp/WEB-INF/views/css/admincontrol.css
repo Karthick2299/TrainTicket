@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+body{
+	background-color: aqua;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: Arial, Helvetica, sans-serif;
+}
+div{
+	text-align: center;
+}
+.button3 {
+	position: absolute;
+	top: 8px;
+	left: 16px;
+	font-size: 20px;
+	color: crimson;
+	margin-top: 8px;
+	background-color: wheat;;
+	margin-left: 2px;
+	border-radius: 10px;
+	height: 41px;
+	width: 38px;
+}
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+.align{
+	text-align: center;
+}

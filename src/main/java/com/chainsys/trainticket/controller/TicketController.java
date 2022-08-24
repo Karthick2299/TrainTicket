@@ -2,6 +2,8 @@ package com.chainsys.trainticket.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class TicketController {
 	 private TrainDetailService trainDetailService;
 	 @Autowired
 	 private TicketDetailService ticketDetailService;
-
+	 
 	@GetMapping("/listticket")
 	public String getTickets(Model model) {
 		List<Ticket> theTk= ticketservice.getTickets();
@@ -42,17 +44,22 @@ public class TicketController {
 		return "list-ticket-form";
 	}
 	@PostMapping("/addticketform")
-	public String addForm(@ModelAttribute("getticketfarebynum")TicketFare ticketFare,Model model) {
-		Ticket theTk = new Ticket();
-		TrainDetail TrainDetail=trainDetailService.findByid(ticketFare.getTrainNo());
-		theTk.setTrainNo(ticketFare.getTrainNo());
-		theTk.setSeatClass(ticketFare.getSeatClass());
-		theTk.setAmount(ticketFare.getFare());
-		theTk.setArrivalTime(TrainDetail.getArrivalTime());
-		theTk.setBoardingTime(TrainDetail.getDepartureTime());
-		theTk.setBoardingStation(TrainDetail.getStartPlace());
-		theTk.setDestinationStation(TrainDetail.getDestination());
-		model.addAttribute("addticket", theTk);
+	public String addForm(@ModelAttribute("getticketfarebynum")TicketFare ticketFare,Model model,HttpServletRequest request) {
+		Ticket ticket = new Ticket();
+		HttpSession session= request.getSession();
+		int userId=(int)session.getAttribute("userId");
+	
+		TrainDetail trainDetail=trainDetailService.findByid(ticketFare.getTrainNo());
+		ticket.setTrainNo(ticketFare.getTrainNo());
+		ticket.setSeatClass(ticketFare.getSeatClass());
+		ticket.setAmount(ticketFare.getFare());
+		ticket.setStatus("Ticket Booking");
+		ticket.setUserId(userId);
+		ticket.setBoardingStation(trainDetail.getStartPlace());
+		ticket.setDestinationStation(trainDetail.getDestination());
+		ticket.setBoardingTime(trainDetail.getArrivalTime());
+		ticket.setArrivalTime(trainDetail.getDepartureTime());
+		model.addAttribute("addticket", ticket);
 		return "add-ticket-form";
 	}
 
@@ -63,7 +70,8 @@ public class TicketController {
 		}
 		
 			ticketservice.save(theTk);
-			return "redirect:/ticket/listticket";
+			int ticketNo=theTk.getTicketNo();
+			return "redirect:/ticket/passengers?id="+ticketNo;
 		
 		
    }
@@ -85,7 +93,7 @@ public class TicketController {
 			return "update-ticket-form";
 		}
 	 ticketservice.save(theTk);
-		return "redirect:/ticket/listticket";
+		return "update-ticket-success";
 	}
 	@GetMapping("/removeticket")
 	public String removeTicket() {
@@ -95,7 +103,7 @@ public class TicketController {
 	@GetMapping("/deleteticket")
 	public String deleteticket(@RequestParam("ticketNo") int id) {
 		ticketservice.deleteById(id);
-		return "redirect:/ticket/listticket";
+		return "delete-ticket-success";
 	}
 	@GetMapping("/findticket")
 	public String findTicket() {
@@ -126,13 +134,16 @@ public class TicketController {
 	public String getNoOfPassengers(@RequestParam("id")int ticketNo,Model model) {
 		TicketDetail ticketDetail=new TicketDetail();
 		model.addAttribute("ticketDetail", ticketDetail);
+		ticketDetail.setTicketNo(ticketNo);
 		List<TicketDetail>ticketDetailList=ticketDetailService.findByTicketNo(ticketNo);
 		model.addAttribute("ticketDetailList", ticketDetailList);
 		return "passengers-details";
 	}
 	@PostMapping("/addpassengers")
-	public String addPassengers(@ModelAttribute("")int id,Model model) {
-		return "";
+	public String addPassengers(@ModelAttribute("ticketDetail")TicketDetail ticketDetail,Model model) {
+		ticketDetailService.save(ticketDetail);
+		int ticketNo=ticketDetail.getTicketNo();
+		return "redirect:/ticket/passengers?id="+ticketNo;
 	}
 
 }

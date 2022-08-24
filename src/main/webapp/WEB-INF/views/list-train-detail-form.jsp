@@ -6,49 +6,47 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Train Detail</title>
-<style>
-.movecenter{
-margin-left : 77px
-}
+<style><%@include file ="/WEB-INF/views/css/listtrain.css"%>
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+	<h2>Train Detail</h2>
 	<div id="table root">
-
-		<table border="2" width="100%" cellpadding="2">
-
-			<thead>
-
-				<tr>
-					<th>Train Number</th>
-					<th>Train Name</th>
-					<th>Start Place</th>
-					<th>Destination</th>
-					<th>Arrival Time</th>
-					<th>Departure Time</th>
-					<th>Booking</th>
-
-				</tr>
-			</thead>
-			<tbody>
-			
-				<c:forEach var="trnd" items="${alltrains}">
-				
+		<div class="container">
+			<table>
+			<caption></caption>
+				<thead>
 					<tr>
-						<td>${trnd.trainNo}</td>
-						<td>${trnd.trainName}</td>
-						<td>${trnd.startPlace}</td>
-						<td>${trnd.destination}</td>
-						<td>${trnd.arrivalTime}</td>
-						<td>${trnd.departureTime}</td>
-						<td> <button onclick="document.location='/ticket/addticketform'" class=movecenter>Book Now</button>
-						</td>
+						<th>Train Number</th>
+						<th>Train Name</th>
+						<th>Start Place</th>
+						<th>Destination</th>
+						<th>Arrival Time</th>
+						<th>Departure Time</th>
 					</tr>
-				</c:forEach>
-			</tbody>
-		
+				</thead>
+				<tbody>
 
-		</table>
+					<c:forEach var="trnd" items="${alltrains}">
+
+						<tr>
+							<td>${trnd.trainNo}</td>
+							<td>${trnd.trainName}</td>
+							<td>${trnd.startPlace}</td>
+							<td>${trnd.destination}</td>
+							<td>${trnd.arrivalTime}</td>
+							<td>${trnd.departureTime}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div>
+		<a href="/user/useraccessa"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
 	</div>
 
 </body>

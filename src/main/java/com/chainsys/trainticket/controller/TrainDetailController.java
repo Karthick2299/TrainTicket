@@ -46,7 +46,6 @@ public class TrainDetailController {
 			return "add-train-detail-form";
 	}
 		traindetailservice.save(theTn);
-//		int trainNo = theTn.getTrainNo();
 		return "redirect:/traindetail/listtrain";
     }
 	@GetMapping("/modifytraindetail")
@@ -92,12 +91,22 @@ public class TrainDetailController {
 		
 		return "find-train-by-num";
 	}
+	@GetMapping("/findtrainamount")
+	public String findTrainAmount() {
+	   
+		return "findtrainamountform";
+	}
 	@GetMapping("/gettrainticketfare")
 	public String getTrainDetailAndTicketFare(@RequestParam("TrainNo")int id,Model model) {
 		TrainDetailAndTicketFareDTO dto=traindetailservice.getTrainDetailAndTicketFareDTO(id);
 		model.addAttribute("traindetail",dto.getTraindetail());
-		model.addAttribute("ticketfare",dto.getTicketFare());
+		model.addAttribute("ticketfare",dto.getTicketfare());
 		return "train-detail-ticket-fare";
+	}
+	@GetMapping("/findtrainticketbook")
+	public String findTrainTicketBook() {
+	   
+		return "findtrainticketform";
 	}
 	@GetMapping("/gettrainticketbook")
 	public String getTrainDetailAndTicket(@RequestParam("TrainNo")int id,Model model) {

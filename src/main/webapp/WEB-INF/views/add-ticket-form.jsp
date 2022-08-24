@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -7,72 +7,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Ticket</title>
-<style type="text/css">
-body {
-	background-image:
-		url("");
-		background-size: cover;
-	background-repeat: no-repeat;
-}
-h1 {text-align: center;}
-div{text-align: center;}
-.heading-text {
-    font-weight: bold;
-    font-size: 20px;
-}
-.input-size {
-    padding: 5px;
-    width: 15%;
-}
-.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
-.top
-{
-    margin-top: 69px;
-}
-.submit
-{
-margin-top: 26px;
-}
-.tab{
-		border:1px black solid;
-		border-radius: 2px;
-		background-color: #FFE5CC;
-		margin-left: 30%;
-		width:450px;
-		color:red;
-		font-weight: bold;
-		font-style:normal;
-		text-align:center;
-		font-size: 22px;
-		margin-bottom:10px;
-		padding:10px;
-	}
-	.yel{
-	color:yellow;
-	}
-	.red{
-		color:red;
-	}
-	.green{
-		color:green;
-	}
-	.brown{
-		color:brown;
-	}
-	.blue{
-		color:blue;
-	}
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
+<style><%@include file ="/WEB-INF/views/css/ticket.css"%>
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="root">
+<h2>Booking Details</h2>
+<div id="root" class="box">
 		<div id="form">
 		<form:form action="newticket" method="post" modelAttribute="addticket">
 				<div>
@@ -98,7 +39,7 @@ margin-top: 26px;
 				<div>
 					<label for="travellingDate">Travel Date</label>
 					<div>
-						<form:input path="travellingDate" type="date" title="Select Your Travelling Date" required="true"/>
+						<form:input path="travellingDate" type="date" title="Select Your Travelling Date" required="true" class="input" />
 					</div>
 				</div>
 				<div>
@@ -111,7 +52,7 @@ margin-top: 26px;
 				<div>
 					<label for="status">Status</label>
 					<div>
-						<form:input path="status" title="Enter Booking Status" pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						<form:input path="status" required="true"/>
 					</div>
 				</div>
 				<form:errors path="status" cssClass="text-danger" />
@@ -132,24 +73,30 @@ margin-top: 26px;
 				<div>
 					<label for="boardingTime">Boarding Time</label>
 					<div>
-						<form:input path="boardingTime" type="time" required="true"/>
+						<form:input path="boardingTime" type="time" required="true" class="input"/>
 					</div>
 				</div>
 				<form:errors path="boardingTime" cssClass="text-danger" />
 				<div>
 					<label for="arrivalTime">Arrival Time</label>
 					<div>
-						<form:input path="arrivalTime" type="time" required="true"/>
+						<form:input path="arrivalTime" type="time" required="true" class="input"/>
 					</div>
 				</div>
 				<form:errors path="arrivalTime" cssClass="text-danger" />
 				<br>
 				<div>
-				<form:button>Add New Ticket</form:button>
+				<form:button>Add Ticket</form:button>
 		        </div>
 		</form:form>
 	</div>
 	</div>
+	<div>
+		<a href="/user/useraccessa"><button class="button3">
+				<em class="fa fa-home"></em>
+			</button></a>
+	</div>
+	
 
 </body>
 </html>

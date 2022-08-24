@@ -69,13 +69,20 @@ margin-top: 26px;
 </style>
 </head>
 <body>
-
+		<button onclick="document.location='/user/userloginform'" style="float: right;">Back</button>
 	<div id="root" class="top">
 	
 		<div id="form">
 		
 			<form:form action="newuser" method="post" modelAttribute="adduser">
-				
+				<div>
+					<label class="heading-text" for="userName">User Name</label>
+					<div>
+						<form:input path="userName" title="Name can't be empty"
+							pattern="^[A-Za-z]\\w{3,20}$" required="true" class="input-size" />
+					</div>
+				</div>
+				<form:errors path="userName" cssClass="text-danger" />
 				<div>
 					<label class="heading-text" for="userPassword"> Password</label>
 					<div>
@@ -86,14 +93,6 @@ margin-top: 26px;
 					</div>
 				</div>
 				<form:errors path="userPassword" cssClass="text-danger" />
-				<div>
-					<label class="heading-text" for="userName">User Name</label>
-					<div>
-						<form:input path="userName" title="Name can't be empty"
-							pattern="^[A-Za-z]\\w{3,20}$" required="true" class="input-size" />
-					</div>
-				</div>
-				<form:errors path="userName" cssClass="text-danger" />
 				<div>
 					<label class="heading-text" for="dateOfBirth">DOB</label>
 					<div>
@@ -152,7 +151,7 @@ margin-top: 26px;
 			   <label for="condition"> I AGREE FOR ALL TERMS & CONDITIONS !!!</label><br>
 				
 				<div class="submit">
-					<form:button type="submit">Add New User</form:button>
+					<form:button type="submit">Register</form:button>
 				</div>
 			</form:form>
 			

@@ -1,0 +1,81 @@
+@charset "ISO-8859-1";
+body {
+	background-image: url("https://c0.wallpaperflare.com/preview/542/753/195/train-ticket-fare-united-kingdom.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.button3 {
+	position: absolute;
+	top: 8px;
+	left: 16px;
+	font-size: 20px;
+	color: crimson;
+	margin-top: 8px;
+	background-color: wheat;;
+	margin-left: 2px;
+	border-radius: 10px;
+	height: 41px;
+	width: 38px;
+}
+h3{
+	font-size: 30px;
+    color: #66ccff;
+    margin-bottom: 9px;
+}
+.from{
+	font-size: 21px;
+    color: crimson;
+}
+.to{
+	margin-top: 41px;
+
+}
+.box {
+	overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 8px 6px 42px #000;
+    margin: auto;
+    padding: 1px;
+    text-align: center;
+    float: center;
+    font-weight: 400;
+    width: 491px;
+    height: 332px;
+    margin-top: 139px;
+    backdrop-filter: blur(2px);
+}
+.text-danger {
+	color: #e80c4d;
+	font-size: 0.9em;
+}
+.box1{
+	overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 8px 6px 42px #000;
+    margin: auto;
+    padding: 1px;
+    text-align: center;
+    float: center;
+    font-weight: 400;
+    width: 491px;
+    height: 559px;
+    margin-top: 44px;
+    backdrop-filter: blur(2px);
+}
+h1{
+	text-align: center;
+    margin-top: 288px;
+    color: aqua;
+}
+.img{
+    margin-left: 250px;
+    align-content: flex-start;
+    width: 108px;
+    margin-top: -86px;
+}
+h4{
+	margin-left: 378px;
+    font-size: 16px;
+    color: lemonchiffon;
+}

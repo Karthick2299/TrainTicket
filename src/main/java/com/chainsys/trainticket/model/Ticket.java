@@ -53,7 +53,6 @@ public class Ticket {
 	
 	@Column(name="status")
 	@NotEmpty(message = "*Please enter status")
-	@Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String status;
 	
 	@Column(name="boarding_station")
