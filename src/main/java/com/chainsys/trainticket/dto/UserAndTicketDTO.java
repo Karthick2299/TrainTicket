@@ -8,7 +8,7 @@ import com.chainsys.trainticket.model.User;
 
 public class UserAndTicketDTO {
 	private User user;
-	private List<Ticket> ticket = new ArrayList<Ticket>();
+	private List<Ticket> ticket = new ArrayList<>();
 	public User getUser() {
 		return user;
 	}

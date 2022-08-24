@@ -3,8 +3,6 @@ package com.chainsys.trainticket.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +20,6 @@ import com.chainsys.trainticket.compositekey.PaymentDetailCompositeKey;
 import com.chainsys.trainticket.model.PaymentDetail;
 import com.chainsys.trainticket.model.Ticket;
 import com.chainsys.trainticket.model.TicketDetail;
-import com.chainsys.trainticket.model.TrainDetail;
 import com.chainsys.trainticket.service.PaymentDetailService;
 import com.chainsys.trainticket.service.TicketDetailService;
 import com.chainsys.trainticket.service.TicketService;
@@ -48,8 +45,6 @@ public class PaymentDetailController {
 		public String addPaymentForm(@RequestParam("ticketNo")int ticketNo,Model model) {
 			PaymentDetail thePd = new PaymentDetail();
 			thePd.setTicketNo(ticketNo);
-//			HttpSession session= request.getSession();
-//			int userId=(int)session.getAttribute("userId");
 			List<TicketDetail> ticketdetails=ticketDetailService.findByTicketNo(ticketNo);
 			Ticket ticket=ticketService.findByid(ticketNo);
 			thePd.setUserId(ticket.getUserId());

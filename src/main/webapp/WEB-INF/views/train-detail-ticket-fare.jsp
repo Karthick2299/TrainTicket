@@ -54,8 +54,9 @@
 	</div>
 	</div>
 	<div id="table root">
-		<table  border="2" width="100%" cellpadding="2">
-			<thead>
+	<table>
+	<caption></caption>
+		<thead>
 				<tr>
 					<th>Train Number</th>
 					<th>Travel Date</th>

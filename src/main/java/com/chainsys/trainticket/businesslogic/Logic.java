@@ -6,7 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Logic {
-	
+	private Logic(){
+		
+	}
 	public static Date getInstanceDate() {
         Calendar vcalendar=Calendar.getInstance();
         String dates =  vcalendar.get(Calendar.DATE) + "/" + (vcalendar.get(Calendar.MONTH)+1) + "/" + vcalendar.get(Calendar.YEAR);

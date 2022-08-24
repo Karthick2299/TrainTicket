@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.trainticket.compositekey.TicketFareCompositeKey;
 import com.chainsys.trainticket.model.TicketFare;
-import com.chainsys.trainticket.model.User;
 import com.chainsys.trainticket.service.TicketFareService;
 
 
@@ -26,6 +25,8 @@ import com.chainsys.trainticket.service.TicketFareService;
 public class TicketFareController {
 	@Autowired
 	TicketFareService ticfareservice;
+	
+	public static final String LISTTICKETFARE = "redirect:/ticketfare/listtktfare";
 	 
 	@GetMapping("/listtktfare")
 	public String getTicketFares(@RequestParam("trainNo")int trainNo,Model model) {
@@ -34,7 +35,7 @@ public class TicketFareController {
 		return "list-ticket-fare-form";
 	}
 	@GetMapping("/addticketfareform")
-	public String AddTicketFare(Model model) {
+	public String addTicketFare(Model model) {
 		TicketFare theTf = new TicketFare();
 		model.addAttribute("addtktfare", theTf);
 		return "add-ticket-fare-form";
@@ -46,7 +47,7 @@ public class TicketFareController {
 			return "add-ticket-fare-form";
 		}
 		ticfareservice.save(theTf);
-		return "redirect:/ticketfare/listtktfare";
+		return LISTTICKETFARE;
     }
 	@GetMapping("/modifyticketfare")
 	public String updateTicketFare() {
@@ -67,19 +68,18 @@ public class TicketFareController {
 			return "update-ticket-fare-form";
 		}
 		ticfareservice.save(theTf);
-		return "redirect:/ticketfare/listtktfare";
+		return LISTTICKETFARE;
 	}
 	@GetMapping("/deleteticketfare")
-	public String deleteTicketFare() {
+	public String deleteTicketFareForm() {
 	   
 		return "deleteticketfareform";
 	}
 	@GetMapping("/deleteticketfareform")
-	public String deleteticketfare(@RequestParam("TrainNo") int id,@RequestParam("class")String sid) {
+	public String deleteTicketFare(@RequestParam("TrainNo") int id,@RequestParam("class")String sid) {
 		TicketFareCompositeKey ticketFareCompositeKey=new TicketFareCompositeKey(id,sid);
-		Optional<TicketFare> theFare = ticfareservice.findByid(ticketFareCompositeKey);
 		ticfareservice.deleteById(ticketFareCompositeKey);
-		return "redirect:/ticketfare/listtktfare";
+		return LISTTICKETFARE;
 	}
 	@GetMapping("/findticketfare")
 	public String getTicketFare() {

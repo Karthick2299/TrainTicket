@@ -23,6 +23,9 @@ import com.chainsys.trainticket.service.TicketFareService;
 @Controller
 @RequestMapping("/station")
 public class StationController {
+	
+	public static final String LISTSTATION ="redirect:/station/liststation";
+	
 	@Autowired
 	StationService stservice;
 	@Autowired
@@ -47,7 +50,7 @@ public class StationController {
 			return "add-station-form";
 		}
 		stservice.save(theSn);
-		return "redirect:/station/liststation";
+		return LISTSTATION;
 	}
 	@GetMapping("/modifystation")
 	public String updateUser() {
@@ -67,7 +70,7 @@ public class StationController {
 			return "update-station-form";
 		}
 	 stservice.save(theSn);
-		return "redirect:/station/liststation";
+		return LISTSTATION;
   }
 	@GetMapping("/removestation")
 	public String updateStation() {
@@ -77,7 +80,7 @@ public class StationController {
 	@GetMapping("/deletestation")
 	public String deletestation(@RequestParam(name = "stationId") String id) {
 		stservice.deleteById(id);
-		return "redirect:/station/liststation";
+		return LISTSTATION;
 	}
 	@GetMapping("/findstation")
 	public String findStation() {
@@ -103,11 +106,5 @@ public class StationController {
 		model.addAttribute("traindetail",dto.getTraindetail());
 		return "station-train-detail";
 	}
-	@GetMapping("/getstationdestination")
-	public String getStationAndTrainDetailDestination(@RequestParam("name")String name,Model model) {
-		StationAndTrainDetailDTO dto=stservice.getStationAndTrainDetailDTO(name);
-		model.addAttribute("station",dto.getStation());
-		model.addAttribute("traindetail",dto.getTraindetail());
-		return "station-train-detail";
-	}
+	
 }

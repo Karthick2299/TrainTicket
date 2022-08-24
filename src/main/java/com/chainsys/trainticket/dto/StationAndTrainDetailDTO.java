@@ -9,7 +9,7 @@ import com.chainsys.trainticket.model.TrainDetail;
 
 public class StationAndTrainDetailDTO {
 	private Optional<Station> station;
-	private List<TrainDetail> traindetail = new ArrayList<TrainDetail>();
+	private List<TrainDetail> traindetail = new ArrayList<>();
 	public Optional<Station> getStation() {
 		return station;
 	}

@@ -42,7 +42,8 @@
 <br><br>
     <h3>Trains Detail</h3>
 <div id="table root" class="menu">
-		<table border="2" width="100%" cellpadding="2">
+		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Train Number</th>

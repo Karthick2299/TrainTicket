@@ -8,7 +8,7 @@ import com.chainsys.trainticket.model.TicketDetail;
 
 public class TicketAndTicketDetailDTO {
 	private Ticket ticket;
-	private List<TicketDetail> ticketDetail = new ArrayList<TicketDetail>();
+	private List<TicketDetail> ticketDetail = new ArrayList<>();
 	public Ticket getTicket() {
 		return ticket;
 	}

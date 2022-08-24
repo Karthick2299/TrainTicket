@@ -28,8 +28,7 @@ public class TicketService {
 	 private TicketDetailRepository ticketDetailrepo;
 	 
 	 public List<Ticket>getTickets(){
-		 List<Ticket> listSt = ticketrepo.findAll();
-		 return listSt;
+		 return ticketrepo.findAll();
 	 }
 	 @Transactional
 		public Ticket save(Ticket tk)
@@ -62,7 +61,7 @@ public class TicketService {
 			List<TicketDetail> ticketDetail = ticketDetailrepo.findByTicketNo(id);
 			Iterator<TicketDetail> itr = ticketDetail.iterator();
 			while(itr.hasNext()) {
-				dto1.addTicketDetail((TicketDetail)itr.next());
+				dto1.addTicketDetail(itr.next());
 				}
 			return dto1;
 		}

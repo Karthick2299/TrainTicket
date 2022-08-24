@@ -19,8 +19,7 @@ public class TicketDetailService {
 	 private  TicketDetailRepository ticketdetailrepo;
 	 
 	 public List<TicketDetail>getTicketDetails(){
-		 List<TicketDetail> listSt = ticketdetailrepo.findAll();
-		 return listSt;
+		 return ticketdetailrepo.findAll();
 	 }
 	 @Transactional
 		public TicketDetail save(TicketDetail td)

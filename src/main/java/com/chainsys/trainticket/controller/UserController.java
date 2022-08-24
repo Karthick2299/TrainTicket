@@ -34,19 +34,18 @@ public class UserController {
 	}
 
 	@GetMapping("/addform")
-	public String AddForm(Model model) {
+	public String addUserForm(Model model) {
 		User theUr = new User();
 		model.addAttribute("adduser", theUr);
 		return "add-user-form";
 	}
 
 	@PostMapping("/newuser")
-	public String adduser(@Valid @ModelAttribute("adduser") User theUr, Errors errors) {
+	public String addUser(@Valid @ModelAttribute("adduser") User theUr, Errors errors) {
 		if (errors.hasErrors()) {
 			return "add-user-form";
 		}
 		urservice.save(theUr);
-		System.out.println("Registered Successfully");
 		return "redirect:/user/userloginform";
 	}
 
@@ -64,7 +63,7 @@ public class UserController {
 	}
 
 	@PostMapping("/updateur")
-	public String modifyuser(@Valid @ModelAttribute("updateuser") User theUr, Errors errors) {
+	public String modifyUser(@Valid @ModelAttribute("updateuser") User theUr, Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-user-form";
 		}
@@ -79,7 +78,7 @@ public class UserController {
 	}
 
 	@GetMapping("/deleteuser")
-	public String deleteuser(int id) {
+	public String deleteUserDetail(int id) {
 		urservice.deleteById(id);
 		return "redirect:/user/listuser";
 	}
@@ -91,7 +90,7 @@ public class UserController {
 	}
 
 	@GetMapping("/getuserbyid")
-	public String getuser(int id, Model model) {
+	public String getUser(int id, Model model) {
 		User ur = urservice.findByid(id);
 		model.addAttribute("getuserbyid", ur);
 		return "find-user-by-id";
@@ -142,7 +141,7 @@ public class UserController {
 		return "submit";
 	}
 	@GetMapping("/return")
-	public String getreturn(Model model) {
+	public String getReturn(Model model) {
 		
 		return "redirect:/";
 	}

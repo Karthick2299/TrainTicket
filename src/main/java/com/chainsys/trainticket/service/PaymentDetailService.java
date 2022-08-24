@@ -26,8 +26,7 @@ public class PaymentDetailService {
 	 private TicketFareRepository ticketFareService;
 	 
 	 public List<PaymentDetail>getPaymentDetails(){
-		 List<PaymentDetail> listSt = paymentdetailrepo.findAll();
-		 return listSt;
+		 return paymentdetailrepo.findAll();
 	 }
 	 @Transactional
 		public PaymentDetail save(PaymentDetail td)
@@ -48,7 +47,7 @@ public float getTotalAmount(int noOfPassengers,int ticketNo) {
 			Ticket ticket=ticketservice.findByid(ticketNo);
 			TicketFareCompositeKey ticketFareCompositeKey=new TicketFareCompositeKey(ticket.getTrainNo(),ticket.getSeatClass());
 			Optional<TicketFare> ticketfare=ticketFareService.findById(ticketFareCompositeKey);
-			totalAmount=(ticketfare.get().getFare())*noOfPassengers;
+			totalAmount=((ticketfare.get().getFare())*(noOfPassengers));
 		return totalAmount;
 		}
 }

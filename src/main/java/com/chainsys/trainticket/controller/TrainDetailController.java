@@ -26,6 +26,8 @@ import com.chainsys.trainticket.service.TrainDetailService;
 public class TrainDetailController {
 	@Autowired
 	TrainDetailService traindetailservice;
+	
+	public static final String LISTTRAIN = "redirect:/traindetail/listtrain";
 	 
 	@GetMapping("/listtrain")
 	public String getTrains(Model model) {
@@ -46,7 +48,7 @@ public class TrainDetailController {
 			return "add-train-detail-form";
 	}
 		traindetailservice.save(theTn);
-		return "redirect:/traindetail/listtrain";
+		return LISTTRAIN;
     }
 	@GetMapping("/modifytraindetail")
 	public String updateTrain() {
@@ -66,7 +68,7 @@ public class TrainDetailController {
 			return "update-train-detail-form";
 		}
 		traindetailservice.save(theTn);
-		return "redirect:/traindetail/listtrain";
+		return LISTTRAIN;
 	}
 	@GetMapping("/deletetraindetail")
 	public String deleteTrain() {
@@ -74,9 +76,9 @@ public class TrainDetailController {
 		return "deletetrainform";
 	}
 	@GetMapping("/deletetrain")
-	public String deletetrain(@RequestParam("TrainNo") int id) {
+	public String deleteTrainDetail(@RequestParam("TrainNo") int id) {
 		traindetailservice.deleteById(id);
-		return "redirect:/traindetail/listtrain";
+		return LISTTRAIN;
 	}
 	@GetMapping("/findtraindetail")
 	public String findTrain() {

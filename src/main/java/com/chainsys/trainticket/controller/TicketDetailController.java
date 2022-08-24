@@ -25,6 +25,8 @@ import com.chainsys.trainticket.service.TicketDetailService;
 public class TicketDetailController {
 	@Autowired
 	TicketDetailService ticketdetailservice;
+	
+	public static final String TICKETDETAIL = "redirect:/ticketdetail/listticketdetail";
 	 
 	@GetMapping("/listticketdetail")
 	public String getTicketDetails(Model model) {
@@ -33,19 +35,19 @@ public class TicketDetailController {
 		return "list-ticket-detail-form";
 	}
 	@GetMapping("/addform")
-	public String AddTicketDetail(Model model) {
+	public String addTicketDetail(Model model) {
 		TicketDetail theTk = new TicketDetail();
 		model.addAttribute("addticketdetail", theTk);
 		return "add-ticket-detail-form";
 	}
 
 	@PostMapping("/newticketdetail")
-	public String addticketdetail(@Valid @ModelAttribute("addticketdetail") TicketDetail theTk,Errors errors) {
+	public String addTicketDetailSave(@Valid @ModelAttribute("addticketdetail") TicketDetail theTk,Errors errors) {
 		if (errors.hasErrors()) {
 			return "add-ticket-detail-form";
 		}
 		ticketdetailservice.save(theTk);
-		return "redirect:/ticketdetail/listticketdetail";
+		return TICKETDETAIL;
     }
 	@GetMapping("/modifyticketdetail")
 	public String updateTicketDetail() {
@@ -66,7 +68,7 @@ public class TicketDetailController {
 			return "update-ticket-detail-form";
 		}
 	 ticketdetailservice.save(theTk);
-		return "redirect:/ticketdetail/listticketdetail";
+		return TICKETDETAIL;
 	}
 	@GetMapping("/removeticketdetail")
 	public String removeTicketDetail() {
@@ -77,7 +79,7 @@ public class TicketDetailController {
 	public String deleteticket(@RequestParam("ticketNo") int id,@RequestParam("name")String value) {
 		TicketDetailCompositeKey ticketDetailcompositeKey = new TicketDetailCompositeKey(id,value);
 		ticketdetailservice.deleteById(ticketDetailcompositeKey);
-		return "redirect:/ticketdetail/listticketdetail";
+		return TICKETDETAIL;
 	}
 	@GetMapping("/findticketdetail")
 	public String findTicketDetail() {

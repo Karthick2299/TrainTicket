@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +22,7 @@ public class StationService {
 	 private TrainDetailRepository trainrepo;
 	 
 	 public List<Station>getStations(){
-		 List<Station> listSt = stationrepo.findAll();
-		 return listSt;
+		 return stationrepo.findAll();
 	 }
 //	 @Transactional
 		public Station save(Station sn)
@@ -47,7 +45,7 @@ public class StationService {
 			List<TrainDetail> traindetail = trainrepo.findByStartPlace(name);
 			Iterator<TrainDetail> itr = traindetail.iterator();
 			while(itr.hasNext()) {
-				dto.addTrainDetail((TrainDetail)itr.next());
+				dto.addTrainDetail(itr.next());
 			}
 			return dto;
 		}
@@ -58,7 +56,7 @@ public class StationService {
 			List<TrainDetail> traindetail1 = trainrepo.findByDestination(name);
 			Iterator<TrainDetail> itr = traindetail1.iterator();
 			while(itr.hasNext()) {
-				dto.addTrainDetail((TrainDetail)itr.next());
+				dto.addTrainDetail(itr.next());
 			}
 			return dto;
 		}

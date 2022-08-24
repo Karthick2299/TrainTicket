@@ -27,8 +27,7 @@ public class UserService {
 	private TicketRepository ticketrepo;
 	
 	public List<User> getUsers(){
-		List<User> listUs=userrepo.findAll();
-		return listUs;
+		return userrepo.findAll();
 	}
 	@Transactional
 	public User save(User theUr)
@@ -51,7 +50,7 @@ public class UserService {
 		List<Ticket> ticket = ticketrepo.findByUserId(username);
 		Iterator<Ticket> iterator = ticket.iterator();
 		while(iterator.hasNext()) {
-			dto.addTicket((Ticket)iterator.next());
+			dto.addTicket(iterator.next());
 		}
 		return dto;
 	}
@@ -62,7 +61,7 @@ public class UserService {
 		List<PaymentDetail> paymentdetail = paymentrepo.findByUserId(value);
 		Iterator<PaymentDetail> itr = paymentdetail.iterator();
 		while(itr.hasNext()) {
-			dto1.addPaymentDetail((PaymentDetail)itr.next());
+			dto1.addPaymentDetail(itr.next());
 		}
 		return dto1;
 	}

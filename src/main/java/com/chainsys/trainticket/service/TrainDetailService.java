@@ -27,8 +27,7 @@ public class TrainDetailService {
 	 private TicketRepository ticketrepo;
 	 
 	 public List<TrainDetail>getTrainDetails(){
-		 List<TrainDetail> listSt = traindetailrepo.findAll();
-		 return listSt;
+		 return traindetailrepo.findAll();
 	 }
 		public TrainDetail save(TrainDetail td)
 		{
@@ -49,7 +48,7 @@ public class TrainDetailService {
 			List<TicketFare> ticketfare = ticketfarerepo.findByTrainNo(id);
 			Iterator<TicketFare> iterator = ticketfare.iterator();
 			while(iterator.hasNext()) {
-				dto.addTicketFare((TicketFare)iterator.next());
+				dto.addTicketFare(iterator.next());
 			}
 			return dto;
 		}
@@ -60,7 +59,7 @@ public class TrainDetailService {
 			List<Ticket> ticket = ticketrepo.findByTrainNo(id);
 			Iterator<Ticket> itr1 =  ticket.iterator();
 			while(itr1.hasNext()) {
-				dto1.addTicket((Ticket) itr1.next());
+				dto1.addTicket( itr1.next());
 			}
 			return dto1;
 		}

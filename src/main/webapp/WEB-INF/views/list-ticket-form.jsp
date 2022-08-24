@@ -9,10 +9,10 @@
 </head>
 <body>
 <div id="table root">
-		<table  border="2" width="100%" cellpadding="2">
+		<table><caption></caption>
 			<thead>
 				<tr>
-					<th>User Id</th>
+					<th >User Id</th>
 					<th>Train Number</th>
 					<th>Ticket Number</th>
 					<th>Seat Class</th>
