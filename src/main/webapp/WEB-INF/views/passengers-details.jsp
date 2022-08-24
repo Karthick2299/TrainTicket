@@ -48,12 +48,13 @@
 				</div>
 
 				<div>
-					<label for="gender">Gender</label>
-					<div>
-						<form:input path="gender" title="gender is required"
-							required="true" />
-					</div>
-				</div>
+                    <label for="gender">Gender</label>
+                    <form:select path="gender">
+                        <form:option value="Male" label="Male" required="true" />
+                        <form:option value="Female" label="Female" required="true" />
+                        <form:option value="Other" label="Other" required="true" />
+                    </form:select>
+            </div>
 				<form:errors path="gender" cssClass="text-danger" />
 				<div>
 					<label for="nationality">Nationality</label>
@@ -69,7 +70,7 @@
 			</form:form>
 		</div>
 	</div>
-	<div id="table root">
+	<div id="root">
 		<table>
 		<caption></caption>
 			<thead>

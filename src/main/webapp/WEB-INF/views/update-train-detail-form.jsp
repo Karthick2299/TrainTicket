@@ -26,7 +26,7 @@
 					<label for="trainName"> Train Name</label>
 					<div>
 						<form:input path="trainName"   title="Name can't be empty"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						pattern="^[a-zA-Z][a-zA-Z\\s]+$" required="true"/>
 					</div>
 				</div>
 				<form:errors path="trainName" cssClass="text-danger" />

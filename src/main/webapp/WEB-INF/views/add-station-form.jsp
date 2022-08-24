@@ -27,7 +27,7 @@
 					<label for="stationName">Station Name</label>
 					<div>
 						<form:input path="stationName" title="Name can't be empty"
-						pattern="^[A-Za-z]\\w{3,50}$" required="true"/>
+						pattern="^[a-zA-Z][a-zA-Z\\s]+$" required="true"/>
 					</div>
 				</div>
 				<form:errors path="stationName" cssClass="text-danger" />

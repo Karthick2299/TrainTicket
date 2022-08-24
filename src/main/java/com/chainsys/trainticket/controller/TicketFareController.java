@@ -26,13 +26,19 @@ public class TicketFareController {
 	@Autowired
 	TicketFareService ticfareservice;
 	
-	public static final String LISTTICKETFARE = "redirect:/ticketfare/listtktfare";
+	public static final String LISTTICKETFARE = "redirect:/ticketfare/listoftkt";
 	 
 	@GetMapping("/listtktfare")
 	public String getTicketFares(@RequestParam("trainNo")int trainNo,Model model) {
 		List<TicketFare> theTf= ticfareservice.findByTrainNo(trainNo);
 		model.addAttribute("alltktfare", theTf);
 		return "list-ticket-fare-form";
+	}
+	@GetMapping("/listoftkt")
+	public String getTicketAmount(Model model) {
+		List<TicketFare> ticketFare = ticfareservice.getTicketFares();
+		model.addAttribute("allticketfare", ticketFare);
+		return "list-ticket-fare";
 	}
 	@GetMapping("/addticketfareform")
 	public String addTicketFare(Model model) {

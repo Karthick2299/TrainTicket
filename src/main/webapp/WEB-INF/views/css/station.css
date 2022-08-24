@@ -35,17 +35,16 @@ table, td {
     border: 1px solid black;
     padding: 21px;
     text-align: center;
-    margin-left: -87px;
-    margin-top: -56px;
+   
+    margin-top: -56px; 
 }
 table, th{
-	font-size: 24px;
+	font-size: 18px;
     border: 1px solid black;
     padding: 25px;
     text-align: center;
-    margin-left: 338px;
-    margin-top: -35px;
     color: midnightblue;
+    margin-left: -100px;
 }
 
 .button2 {

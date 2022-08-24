@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -26,11 +25,6 @@ public class PaymentDetail {
 	
 	@Column(name="user_id")
 	private int userId;
-	
-	@Column(name="receipt_no")
-    @Min(value = 0,message="*value should be greater than 0")
-	private String receiptNo ;
-	
 	
 	@Column(name="amount")
 	private float amount;
@@ -77,12 +71,6 @@ public class PaymentDetail {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-	public String getReceiptNo() {
-		return receiptNo;
-	}
-	public void setReceiptNo(String receiptNo) {
-		this.receiptNo = receiptNo;
 	}
 	public float getAmount() {
 		return amount;

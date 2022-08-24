@@ -25,12 +25,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="receiptNo">Receipt Number</label>
-					<div>
-						<form:input path="receiptNo" readonly="true"/>
-					</div>
-				</div>
-				<div>
 					<label for="amount"> Amount</label>
 					<div>
 						<form:input path="amount" readonly="true"/>

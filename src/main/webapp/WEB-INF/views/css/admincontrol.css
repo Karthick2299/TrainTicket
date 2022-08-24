@@ -1,4 +1,7 @@
 @charset "ISO-8859-1";
+*{
+	box-sizing: border-box;
+}
 body{
 	background-color: aqua;
 	background-attachment: fixed;

@@ -32,13 +32,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="receiptNo">Receipt Number</label>
-					<div>
-						<form:input path="receiptNo" title="Receipt Number can't be empty" required="true"/>
-					</div>
-				</div>
-				<form:errors path="receiptNo" cssClass="text-danger" />
-				<div>
 					<label for="amount"> Amount</label>
 					<div>
 						<form:input path="amount" title="Amount can't be empty" required="true"/>

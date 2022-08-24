@@ -76,7 +76,6 @@
 				<tr>
 					<th>Ticket Number</th>
 					<th>User Id</th>
-					<th>Receipt Number</th>
 					<th>Amount</th>
 					<th>Mode Of Payment</th>
 					<th>Payment Detail</th>
@@ -89,7 +88,6 @@
 					<tr>
 						<td>${pdf.ticketNo}</td>
 						<td>${pdf.userId}</td>
-						<td>${pdf.receiptNo}</td>
 						<td>${pdf.amount}</td>
 						<td>${pdf.modeOfPayment}</td>
 						<td>${pdf.paymentDetails}</td>

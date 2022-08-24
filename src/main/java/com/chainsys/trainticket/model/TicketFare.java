@@ -22,8 +22,7 @@ public class TicketFare {
 	private int trainNo;
 	
 	@Column(name="max_seats")
-	@NotBlank(message = "*Please put the Seat Capacity")
-	private float maxSeats;
+	private int maxSeats;
 	
 	@Id
 	@Column(name="seat_class")
@@ -45,11 +44,11 @@ public class TicketFare {
 		this.trainNo = trainNo;
 	}
 
-	public float getMaxSeats() {
+	public int getMaxSeats() {
 		return maxSeats;
 	}
 
-	public void setMaxSeats(float maxSeats) {
+	public void setMaxSeats(int maxSeats) {
 		this.maxSeats = maxSeats;
 	}
 
