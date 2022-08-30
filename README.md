@@ -9,14 +9,18 @@ Train Ticketing System :
 2.In this site,where we can add,update,view the data's of above mentioned records.
 #Project Flow
 	LOGIN ---> USER ---> VIEW STATION
-				  -ADD/UPDATE/VIEW ROOM
-				  -ADD/UPDATE/VIEW OPERATION THEATRE
-				  -ADD/UPDATE/VIEW DOCTOR
-				  -ADD/UPDATE/VIEW VISITING DOCTOR
-				  -ADD/UPDATE/VIEW BEDS
-				  -ADD/UPDATE/VIEW AMBULANCE DETAILS
-				  -ADD/UPDATE/VIEW BOOKING DETAILS
+				  -FIND STATION/VIEW TRAIN DETAIL/CHECK AMOUNT
+				  -BOOK TICKET/ADD PASSENGER DETAILS/ADD PAYMENT
+				  -FIND TRANSACTION
+				  -UPDATE TICKET
+				  -CANCEL TICKET
 	LOGOUT
+	ADMIN LOGIN-->ADD/UPDATE STATION
+	            - ADD/UPDATE/DELETE TRAIN DETAIL
+	            - ADD/UPDATE/DELETE TICKETFARE DETAIL
+	            - VIEW BOOKING TICKETS 
+	            - VIEW PAYMENTS			 
+	
 #Features
 1.DataBase Connectivity.
 2.DB Relational Data Handling. One to Many relation. One to One relation
