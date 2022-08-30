@@ -1,4 +1,4 @@
-package com.chainsys.trainticket.dao;
+package com.chainsys.trainticket.repository;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import com.chainsys.trainticket.model.Ticket;
 public interface TicketRepository extends CrudRepository<Ticket,Integer> {
 	Ticket findById(int id);
 	
-	Ticket save(Ticket tk);
+	Ticket save(Ticket ticket);
 	
 	void deleteById(int id);
 	

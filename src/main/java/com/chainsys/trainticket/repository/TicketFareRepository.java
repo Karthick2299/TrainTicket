@@ -1,4 +1,4 @@
-package com.chainsys.trainticket.dao;
+package com.chainsys.trainticket.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,11 +10,11 @@ import com.chainsys.trainticket.model.TicketFare;
 
 
 public interface TicketFareRepository  extends CrudRepository<TicketFare,TicketFareCompositeKey> {
- 	Optional<TicketFare> findById(TicketFareCompositeKey theFare);
+ 	Optional<TicketFare> findById(TicketFareCompositeKey ticketFare);
  	
- 	TicketFare save(TicketFare tf);
+ 	TicketFare save(TicketFare fare);
  	
- 	void deleteById(TicketFareCompositeKey theFare);
+ 	void deleteById(TicketFareCompositeKey ticketFare);
  	
  	List<TicketFare> findAll(); 
  	

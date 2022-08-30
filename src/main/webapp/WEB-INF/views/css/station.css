@@ -30,6 +30,13 @@ h1 {
 h1:hover{
     background-color: #37c8ab;
 }
+h2{
+	margin-bottom: 25px;
+    margin-left: 48px;
+    color: orangered;
+    font-size: 28px;
+
+}
 
 table, td {
     border: 1px solid black;
@@ -44,7 +51,7 @@ table, th{
     padding: 25px;
     text-align: center;
     color: midnightblue;
-    margin-left: -100px;
+    margin-left: -120px;
 }
 
 .button2 {

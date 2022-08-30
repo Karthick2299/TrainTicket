@@ -1,4 +1,4 @@
-package com.chainsys.trainticket.dao;
+package com.chainsys.trainticket.repository;
 
 import java.util.List;
 

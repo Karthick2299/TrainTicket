@@ -47,7 +47,6 @@
 				Payments <em class="fa fa-caret-down"></em>
 			</button>
 			<div class="dropdown-content"> 
-				<a href="/paymentdetail/removepayment">Remove Payment</a> 
 				<a href="/paymentdetail/findpayment">Find Your Transaction</a>
 			</div>
 		</div>

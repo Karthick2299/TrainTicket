@@ -39,8 +39,8 @@ public class TicketController {
 	 
 	@GetMapping("/listticket")
 	public String getTickets(Model model) {
-		List<Ticket> theTk= ticketservice.getTickets();
-		model.addAttribute("alltickets", theTk);
+		List<Ticket> ticket= ticketservice.getTickets();
+		model.addAttribute("alltickets", ticket);
 		return "list-ticket-form";
 	}
 	@PostMapping("/addticketform")
@@ -64,13 +64,13 @@ public class TicketController {
 	}
 
 	@PostMapping("/newticket")
-	public String addticket(@Valid @ModelAttribute("addticket") Ticket theTk,Errors errors) {
+	public String addticket(@Valid @ModelAttribute("addticket") Ticket ticket,Errors errors) {
 		if(errors.hasErrors()) {
 			return "add-ticket-form";
 		}
 		
-			ticketservice.save(theTk);
-			int ticketNo=theTk.getTicketNo();
+			ticketservice.save(ticket);
+			int ticketNo=ticket.getTicketNo();
 			return "redirect:/ticket/passengers?id="+ticketNo;
 		
 		
@@ -82,17 +82,17 @@ public class TicketController {
 	}
 	@GetMapping("/updateticketform")
 	public String showUpdateForm(@RequestParam("ticketNo") int id, Model model) {
-		Ticket theTk = ticketservice.findByid(id);
-		model.addAttribute("updateticket", theTk);
+		Ticket ticket = ticketservice.findByid(id);
+		model.addAttribute("updateticket", ticket);
 		return "update-ticket-form";
 	}
 
 	@PostMapping("/updatetk")
-	public String modifyticket(@Valid @ModelAttribute("updateticket") Ticket theTk,Errors errors) {
+	public String modifyticket(@Valid @ModelAttribute("updateticket") Ticket ticket,Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-ticket-form";
 		}
-	 ticketservice.save(theTk);
+	 ticketservice.save(ticket);
 		return "update-ticket-success";
 	}
 	@GetMapping("/removeticket")
@@ -112,8 +112,8 @@ public class TicketController {
 	}
 	@GetMapping("/getticketbyid")
 	public String getticketbyid(@RequestParam("ticketNo") int id, Model model) {
-		Ticket ur = ticketservice.findByid(id);
-		model.addAttribute("getticketbyid", ur);
+		Ticket ticket = ticketservice.findByid(id);
+		model.addAttribute("getticketbyid", ticket);
 		return "find-ticket-by-id";
 	}
 	@GetMapping("/getticketandpayment")

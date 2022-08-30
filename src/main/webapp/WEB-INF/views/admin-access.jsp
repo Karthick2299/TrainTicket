@@ -42,6 +42,7 @@
 				TicketFare Details <em class="fa fa-caret-down"></em>
 			</button>
 			<div class="dropdown-content"> 
+				<a href="/ticketfare/listoftkt">List Of TicketFare </a>
 				<a href="/ticketfare/addticketfareform">New TicketFare </a>
 				 <a	href="/ticketfare/modifyticketfare">Update TicketFare</a>
 				 <a	href="/ticketfare/deleteticketfare">Remove TicketFare</a>

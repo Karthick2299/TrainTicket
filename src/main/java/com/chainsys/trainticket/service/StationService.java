@@ -8,11 +8,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.trainticket.dao.StationRepository;
-import com.chainsys.trainticket.dao.TrainDetailRepository;
 import com.chainsys.trainticket.dto.StationAndTrainDetailDTO;
 import com.chainsys.trainticket.model.Station;
 import com.chainsys.trainticket.model.TrainDetail;
+import com.chainsys.trainticket.repository.StationRepository;
+import com.chainsys.trainticket.repository.TrainDetailRepository;
 
 @Service
 public class StationService {

@@ -7,14 +7,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.trainticket.dao.TicketFareRepository;
-import com.chainsys.trainticket.dao.TicketRepository;
-import com.chainsys.trainticket.dao.TrainDetailRepository;
 import com.chainsys.trainticket.dto.TrainDetailAndTicketDTO;
 import com.chainsys.trainticket.dto.TrainDetailAndTicketFareDTO;
 import com.chainsys.trainticket.model.Ticket;
 import com.chainsys.trainticket.model.TicketFare;
 import com.chainsys.trainticket.model.TrainDetail;
+import com.chainsys.trainticket.repository.TicketFareRepository;
+import com.chainsys.trainticket.repository.TicketRepository;
+import com.chainsys.trainticket.repository.TrainDetailRepository;
 
 
 @Service

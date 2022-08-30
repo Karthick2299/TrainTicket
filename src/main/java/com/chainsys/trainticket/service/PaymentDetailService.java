@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 
 import com.chainsys.trainticket.compositekey.PaymentDetailCompositeKey;
 import com.chainsys.trainticket.compositekey.TicketFareCompositeKey;
-import com.chainsys.trainticket.dao.PaymentDetailRepository;
-import com.chainsys.trainticket.dao.TicketFareRepository;
 import com.chainsys.trainticket.model.PaymentDetail;
 import com.chainsys.trainticket.model.Ticket;
 import com.chainsys.trainticket.model.TicketFare;
+import com.chainsys.trainticket.repository.PaymentDetailRepository;
+import com.chainsys.trainticket.repository.TicketFareRepository;
 
 @Service
 public class PaymentDetailService {

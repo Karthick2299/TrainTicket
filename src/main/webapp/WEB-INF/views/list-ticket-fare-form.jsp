@@ -6,13 +6,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ticket Fare</title>
-<style><%@include file ="/WEB-INF/views/css/listticketfare.css"%>
+<style><%@include file ="/WEB-INF/views/css/station.css"%>
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
- <div class="box">
+  <div class="box">
    <h2>Ticket Amount</h2>
+   
 	<div id="table root">
 		<table class="container">
 		<caption></caption>

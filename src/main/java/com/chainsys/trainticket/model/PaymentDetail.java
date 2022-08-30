@@ -19,10 +19,10 @@ import javax.validation.constraints.Pattern;
 @Entity
 @Table(name="paymentdetails")
 public class PaymentDetail {
-	@Id
+	
 	@Column(name="ticket_no")
 	private int ticketNo;
-	
+	@Id
 	@Column(name="user_id")
 	private int userId;
 	

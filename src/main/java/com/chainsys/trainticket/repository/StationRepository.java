@@ -1,4 +1,4 @@
-package com.chainsys.trainticket.dao;
+package com.chainsys.trainticket.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +12,7 @@ public interface StationRepository extends CrudRepository<Station,String>  {
   Optional<Station> findById(String id);
 	
 	
-	Station save(Station sn);
+	Station save(Station station);
 	
 	void deleteById(String id);
 	

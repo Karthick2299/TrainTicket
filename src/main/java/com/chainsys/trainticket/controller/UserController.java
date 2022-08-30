@@ -24,28 +24,28 @@ import com.chainsys.trainticket.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 	@Autowired
-	UserService urservice;
+	UserService userservice;
 
 	@GetMapping("/listuser")
 	public String getUsers(Model model) {
-		List<User> theUr = urservice.getUsers();
-		model.addAttribute("allusers", theUr);
+		List<User> user = userservice.getUsers();
+		model.addAttribute("allusers", user);
 		return "list-user";
 	}
 
 	@GetMapping("/addform")
 	public String addUserForm(Model model) {
-		User theUr = new User();
-		model.addAttribute("adduser", theUr);
+		User user = new User();
+		model.addAttribute("adduser", user);
 		return "add-user-form";
 	}
 
 	@PostMapping("/newuser")
-	public String addUser(@Valid @ModelAttribute("adduser") User theUr, Errors errors) {
+	public String addUser(@Valid @ModelAttribute("adduser") User user, Errors errors) {
 		if (errors.hasErrors()) {
 			return "add-user-form";
 		}
-		urservice.save(theUr);
+		userservice.save(user);
 		return "redirect:/user/userloginform";
 	}
 
@@ -57,17 +57,17 @@ public class UserController {
 
 	@GetMapping("/updateform")
 	public String showUpdateForm(int id, Model model) {
-		User theUr = urservice.findByid(id);
-		model.addAttribute("updateuser", theUr);
+		User user = userservice.findByid(id);
+		model.addAttribute("updateuser", user);
 		return "update-user-form";
 	}
 
 	@PostMapping("/updateur")
-	public String modifyUser(@Valid @ModelAttribute("updateuser") User theUr, Errors errors) {
+	public String modifyUser(@Valid @ModelAttribute("updateuser") User user, Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-user-form";
 		}
-		urservice.save(theUr);
+		userservice.save(user);
 		return "redirect:/user/listuser";
 	}
 
@@ -79,7 +79,7 @@ public class UserController {
 
 	@GetMapping("/deleteuser")
 	public String deleteUserDetail(int id) {
-		urservice.deleteById(id);
+		userservice.deleteById(id);
 		return "redirect:/user/listuser";
 	}
 
@@ -91,14 +91,14 @@ public class UserController {
 
 	@GetMapping("/getuserbyid")
 	public String getUser(int id, Model model) {
-		User ur = urservice.findByid(id);
-		model.addAttribute("getuserbyid", ur);
+		User user = userservice.findByid(id);
+		model.addAttribute("getuserbyid", user);
 		return "find-user-by-id";
 	}
 
 	@GetMapping("/getuserticket")
 	public String getUserAndTicket(@RequestParam("ticket") int name, Model model) {
-		UserAndTicketDTO dto = urservice.getUserAndTicketDTO(name);
+		UserAndTicketDTO dto = userservice.getUserAndTicketDTO(name);
 		model.addAttribute("user", dto.getUser());
 		model.addAttribute("ticket", dto.getTicket());
 		return "user-and-ticket";
@@ -106,7 +106,7 @@ public class UserController {
 
 	@GetMapping("/getuserpayment")
 	public String getUserAndPaymentDetail(@RequestParam("user") int string, Model model) {
-		UserAndPaymentDetailDTO dto1 = urservice.getUserAndPaymentDetailDTO(string);
+		UserAndPaymentDetailDTO dto1 = userservice.getUserAndPaymentDetailDTO(string);
 		model.addAttribute("user", dto1.getUser());
 		model.addAttribute("payment", dto1.getPaymentDetail());
 		return "user-and-payment-detail";
@@ -121,7 +121,7 @@ public class UserController {
 
 	@PostMapping("/checkuserloginform")
 	public String checkingAccess(@ModelAttribute("userlogin") User user,HttpSession session,Model model) {
-		User userlogin = urservice.getUserByNameAndPassword(user.getUserName(), user.getUserPassword());
+		User userlogin = userservice.getUserByNameAndPassword(user.getUserName(), user.getUserPassword());
 		if (userlogin != null) {
 			session.setAttribute("userId", userlogin.getUserId());
 			return "user-access";

@@ -8,7 +8,7 @@ Train Ticketing System :
 1.This Project is Used to Maintain Station,TrainDetail,Ticket,TicketDetail,TicketFare,PaymentDetail Records.  
 2.In this site,where we can add,update,view the data's of above mentioned records.
 #Project Flow
-	LOGIN ---> ADMIN ---> -ADD/UPDATE/VIEW STAFF
+	LOGIN ---> USER ---> VIEW STATION
 				  -ADD/UPDATE/VIEW ROOM
 				  -ADD/UPDATE/VIEW OPERATION THEATRE
 				  -ADD/UPDATE/VIEW DOCTOR

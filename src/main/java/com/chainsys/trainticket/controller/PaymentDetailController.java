@@ -37,8 +37,8 @@ public class PaymentDetailController {
 	 
 		@GetMapping("/listpayment")
 		public String getPaymentDetails(Model model) {
-			List<PaymentDetail> thePd =pdservice.getPaymentDetails();
-			model.addAttribute("allpayments", thePd);
+			List<PaymentDetail> payment =pdservice.getPaymentDetails();
+			model.addAttribute("allpayments", payment);
 			return "list-payment-detail-form";
 		}
 		@GetMapping("/addform")
@@ -53,17 +53,13 @@ public class PaymentDetailController {
 			model.addAttribute("newpayment", thePd);
 			return "add-payment-detail-form";
 		}
-		@GetMapping("/submitbut")
-		public String getSubmit(Model model) {
-			
-			return "submit";
-		}
+		
 		@PostMapping("/addpayment")
-		public String addstation(@Valid @ModelAttribute("newpayment") PaymentDetail thePd,Errors errors) {
+		public String addstation(@Valid @ModelAttribute("newpayment") PaymentDetail payment,Errors errors) {
 			if (errors.hasErrors()) {
 				return "add-payment-detail-form";
 			}
-			pdservice.save(thePd);
+			pdservice.save(payment);
 			return "submit";
 		}
 		
@@ -75,17 +71,17 @@ public class PaymentDetailController {
 		@GetMapping("/updateform")
 		public String updatePaymentform(@RequestParam("ticketNo") int id,@RequestParam("userId") int name, Model model) {
 			PaymentDetailCompositeKey paymentDetailCompositeKey=new PaymentDetailCompositeKey(id,name);
-			Optional<PaymentDetail> thePd = pdservice.findByid(paymentDetailCompositeKey);
-			model.addAttribute("updatepayment", thePd);
+			Optional<PaymentDetail> payment = pdservice.findByid(paymentDetailCompositeKey);
+			model.addAttribute("updatepayment", payment);
 			return "update-payment-detail-form";
 		}
 
 		@PostMapping("/modifypayment")
-		public String modifyPayment(@Valid @ModelAttribute("updatepayment") PaymentDetail thePd,Errors errors) {
+		public String modifyPayment(@Valid @ModelAttribute("updatepayment") PaymentDetail payment,Errors errors) {
 			if (errors.hasErrors()) {
 				return "update-payment-detail-form";
 			}
-		 pdservice.save(thePd);
+		 pdservice.save(payment);
 			return "redirect:/paymentdetail/listpayment";
 	  }
 		@GetMapping("/removepayment")
@@ -108,9 +104,14 @@ public class PaymentDetailController {
 		@GetMapping("/getpaymentbyno")
 		public String getPayment(@RequestParam("ticketNo") int id,@RequestParam("userId")int name1, Model model) {
 			PaymentDetailCompositeKey paymentdetailcompositeKey = new PaymentDetailCompositeKey(id,name1);
-			Optional<PaymentDetail> pd = pdservice.findByid(paymentdetailcompositeKey);
-			model.addAttribute("getpaymentbytktno", pd);
+			Optional<PaymentDetail> payment = pdservice.findByid(paymentdetailcompositeKey);
+			model.addAttribute("getpaymentbytktno", payment);
 			return "find-payment-by-ticket-num";
+		}
+		@GetMapping("/submitbut")
+		public String getSubmit(Model model) {
+			
+			return "submit";
 		}
 
 	}

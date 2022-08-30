@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 body {
 	background-image:
-		url("https://media.istockphoto.com/photos/abstract-defocused-blue-soft-background-picture-id937025430?b=1&k=20&m=937025430&s=170667a&w=0&h=dV83s5bygLIt2r5MJm5ARhXmWxtq8CtS5YMuydofQe8=");
+		url("https://c4.wallpaperflare.com/wallpaper/14/1022/547/background-train-railroad-hd-wallpaper-preview.jpg");
 	
 	background-attachment: fixed;
 	background-size: cover;
@@ -10,7 +10,7 @@ body {
 
 h1 {
 	font-family: lucida Handwriting, Cursive;
-    color: hotpink;
+    color: lime;
     text-align: center
 
 }
@@ -37,7 +37,7 @@ h1 {
 	font-size: 30px;
     border: none;
     outline: none;
-    color: orangered;
+    color:  blanchedalmond;
     padding: 14px 16px;
     background-color: inherit;
     font-family: serif;
@@ -80,7 +80,7 @@ a:hover, .dropdown:hover .dropbtn {
     font-size: 30px;
     height: 21px;
     width: 67px;
-    background-color: midnightblue;
+    background-color: black;
     color: white;
     margin-top: 26px;
 }

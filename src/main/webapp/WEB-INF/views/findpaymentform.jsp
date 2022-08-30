@@ -5,6 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Payment Detail</title>
+<style type="text/css">
+body{
+	background-image: url("https://wallpaperaccess.com/full/4597111.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+</style>
 </head>
 <body>
 <h3>Find Payment</h3>

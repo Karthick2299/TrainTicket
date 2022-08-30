@@ -31,23 +31,23 @@ public class TrainDetailController {
 	 
 	@GetMapping("/listtrain")
 	public String getTrains(Model model) {
-		List<TrainDetail> theTn= traindetailservice.getTrainDetails();
-		model.addAttribute("alltrains", theTn);
+		List<TrainDetail> train= traindetailservice.getTrainDetails();
+		model.addAttribute("alltrains", train);
 		return "list-train-detail-form";
 	}
 	@GetMapping("/addtrainform")
 	public String addTrainForm(Model model) {
-		TrainDetail theTn = new TrainDetail();
-		model.addAttribute("addtrain", theTn);
+		TrainDetail train = new TrainDetail();
+		model.addAttribute("addtrain", train);
 		return "add-train-detail-form";
 	}
 
 	@PostMapping("/newtrain")
-	public String addtrain(@Valid @ModelAttribute("addtrain") TrainDetail theTn,Errors errors){
+	public String addtrain(@Valid @ModelAttribute("addtrain") TrainDetail train,Errors errors){
 		if (errors.hasErrors()){
 			return "add-train-detail-form";
 	}
-		traindetailservice.save(theTn);
+		traindetailservice.save(train);
 		return LISTTRAIN;
     }
 	@GetMapping("/modifytraindetail")
@@ -57,17 +57,17 @@ public class TrainDetailController {
 	}
 	@GetMapping("/updatetrainform")
 	public String updateTrainDetailForm(@RequestParam("TrainNo")int id, Model model) {
-		TrainDetail theTn = traindetailservice.findByid(id);
-		model.addAttribute("updatetrain", theTn);
+		TrainDetail train = traindetailservice.findByid(id);
+		model.addAttribute("updatetrain", train);
 		return "update-train-detail-form";
 	}
 
 	@PostMapping("/updatetn")
-	public String modifytrain(@Valid @ModelAttribute("updatetrain") TrainDetail theTn,Errors errors) {
+	public String modifytrain(@Valid @ModelAttribute("updatetrain") TrainDetail train,Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-train-detail-form";
 		}
-		traindetailservice.save(theTn);
+		traindetailservice.save(train);
 		return LISTTRAIN;
 	}
 	@GetMapping("/deletetraindetail")
@@ -88,8 +88,8 @@ public class TrainDetailController {
 
 	@GetMapping("/gettrainbyno")
 	public String getticketbyid(@RequestParam("TrainNo") int id, Model model) {
-		TrainDetail tn = traindetailservice.findByid(id);
-		model.addAttribute("gettrainbynum", tn);
+		TrainDetail train = traindetailservice.findByid(id);
+		model.addAttribute("gettrainbynum", train);
 		
 		return "find-train-by-num";
 	}
@@ -100,9 +100,9 @@ public class TrainDetailController {
 	}
 	@GetMapping("/gettrainticketfare")
 	public String getTrainDetailAndTicketFare(@RequestParam("TrainNo")int id,Model model) {
-		TrainDetailAndTicketFareDTO dto=traindetailservice.getTrainDetailAndTicketFareDTO(id);
-		model.addAttribute("traindetail",dto.getTraindetail());
-		model.addAttribute("ticketfare",dto.getTicketfare());
+		TrainDetailAndTicketFareDTO traindto=traindetailservice.getTrainDetailAndTicketFareDTO(id);
+		model.addAttribute("traindetail",traindto.getTraindetail());
+		model.addAttribute("ticketfare",traindto.getTicketfare());
 		return "train-detail-ticket-fare";
 	}
 	@GetMapping("/findtrainticketbook")
@@ -112,9 +112,9 @@ public class TrainDetailController {
 	}
 	@GetMapping("/gettrainticketbook")
 	public String getTrainDetailAndTicket(@RequestParam("TrainNo")int id,Model model) {
-		TrainDetailAndTicketDTO dto1 =traindetailservice.getTrainDetailAndTicketDTO(id);
-		model.addAttribute("traindetail1",dto1.getTrainDetail());
-		model.addAttribute("ticket",dto1.getTicket());
+		TrainDetailAndTicketDTO traindetail =traindetailservice.getTrainDetailAndTicketDTO(id);
+		model.addAttribute("traindetail1",traindetail.getTrainDetail());
+		model.addAttribute("ticket",traindetail.getTicket());
 		return "train-detail-and-ticket-book";
 	}
 

@@ -27,29 +27,29 @@ public class StationController {
 	public static final String LISTSTATION ="redirect:/station/liststation";
 	
 	@Autowired
-	StationService stservice;
+	StationService stationservice;
 	@Autowired
 	TicketFareService ticketFareService;
 	
 	@GetMapping("/liststation")
 	public String getStations(Model model) {
-		List<Station> theSt =stservice.getStations();
-		model.addAttribute("allstations", theSt);
+		List<Station> station =stationservice.getStations();
+		model.addAttribute("allstations", station);
 		return "list-station";
 	}
 	@GetMapping("/addstationform")
 	public String showAddForm(Model model) {
-		Station theSn = new Station();
-		model.addAttribute("newstation", theSn);
+		Station station = new Station();
+		model.addAttribute("newstation", station);
 		return "add-station-form";
 	}
 
 	@PostMapping("/addstation")
-	public String addstation(@Valid @ModelAttribute("newstation") Station theSn,Errors errors) {
+	public String addstation(@Valid @ModelAttribute("newstation") Station station,Errors errors) {
 		if(errors.hasErrors()) {
 			return "add-station-form";
 		}
-		stservice.save(theSn);
+		stationservice.save(station);
 		return LISTSTATION;
 	}
 	@GetMapping("/modifystation")
@@ -59,17 +59,17 @@ public class StationController {
 	}
 	@GetMapping("/updatestationform")
 	public String showUpdateForm(@RequestParam("stationId") String id, Model model) {
-		Optional<Station> theSn = stservice.findByid(id);
-		model.addAttribute("updatestn", theSn);
+		Optional<Station> station = stationservice.findByid(id);
+		model.addAttribute("updatestn", station);
 		return "update-station-form";
 	}
 
 	@PostMapping("/updatestation")
-	public String modifystation(@Valid @ModelAttribute("updatestn") Station theSn,Errors errors) {
+	public String modifystation(@Valid @ModelAttribute("updatestn") Station station,Errors errors) {
 		if(errors.hasErrors()) {
 			return "update-station-form";
 		}
-	 stservice.save(theSn);
+	 stationservice.save(station);
 		return LISTSTATION;
   }
 	@GetMapping("/removestation")
@@ -79,7 +79,7 @@ public class StationController {
 	}
 	@GetMapping("/deletestation")
 	public String deletestation(@RequestParam(name = "stationId") String id) {
-		stservice.deleteById(id);
+		stationservice.deleteById(id);
 		return LISTSTATION;
 	}
 	@GetMapping("/findstation")
@@ -90,8 +90,8 @@ public class StationController {
 
 	@GetMapping("/getstationbyid")
 	public String getstation(@RequestParam("stationId") String id, Model model) {
-		Optional<Station> sn = stservice.findByid(id);
-		model.addAttribute("getuserbystnid", sn);
+		Optional<Station> station = stationservice.findByid(id);
+		model.addAttribute("getuserbystnid", station);
 		return "find-station-by-id";
 	}
 	@GetMapping("/findstationstartplace")
@@ -101,7 +101,7 @@ public class StationController {
 	}
 	@GetMapping("/getstationstartplace")
 	public String getStationAndTrainDetail(@RequestParam("name")String name,Model model) {
-		StationAndTrainDetailDTO dto=stservice.getStationAndTrainDetailDTO(name);
+		StationAndTrainDetailDTO dto=stationservice.getStationAndTrainDetailDTO(name);
 		model.addAttribute("station",dto.getStation());
 		model.addAttribute("traindetail",dto.getTraindetail());
 		return "station-train-detail";

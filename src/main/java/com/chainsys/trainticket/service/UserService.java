@@ -8,14 +8,14 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.trainticket.dao.PaymentDetailRepository;
-import com.chainsys.trainticket.dao.TicketRepository;
-import com.chainsys.trainticket.dao.UserRepository;
 import com.chainsys.trainticket.dto.UserAndPaymentDetailDTO;
 import com.chainsys.trainticket.dto.UserAndTicketDTO;
 import com.chainsys.trainticket.model.PaymentDetail;
 import com.chainsys.trainticket.model.Ticket;
 import com.chainsys.trainticket.model.User;
+import com.chainsys.trainticket.repository.PaymentDetailRepository;
+import com.chainsys.trainticket.repository.TicketRepository;
+import com.chainsys.trainticket.repository.UserRepository;
 
 @Service
 public class UserService {

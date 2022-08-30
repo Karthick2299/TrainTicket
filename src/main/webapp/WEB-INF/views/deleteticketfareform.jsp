@@ -15,8 +15,11 @@
     <br>
     <form action="/ticketfare/deleteticketfareform" method="get"
         style="margin: 0;">
-        <label>Enter Train Number </label> <input type="text" placeholder="Train Number"
-            name="TrainNo"> <input type='submit' value="Delete" name="submit">
+        <label>Enter Train Number </label>
+         <input type="text" placeholder="Train Number" name="TrainNo">
+          <label>Seat Class </label>
+           <input type="text" placeholder="Seat Class" name="class">
+          <input type='submit' value="Delete" name="submit">
     </form>
     </div>
     <div>

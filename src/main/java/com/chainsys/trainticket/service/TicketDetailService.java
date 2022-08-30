@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.trainticket.compositekey.TicketDetailCompositeKey;
-import com.chainsys.trainticket.dao.TicketDetailRepository;
 import com.chainsys.trainticket.model.TicketDetail;
+import com.chainsys.trainticket.repository.TicketDetailRepository;
 
 
 @Service

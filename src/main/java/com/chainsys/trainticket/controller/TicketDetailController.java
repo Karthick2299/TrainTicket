@@ -30,23 +30,23 @@ public class TicketDetailController {
 	 
 	@GetMapping("/listticketdetail")
 	public String getTicketDetails(Model model) {
-		List<TicketDetail> theTk= ticketdetailservice.getTicketDetails();
-		model.addAttribute("allticketdetails", theTk);
+		List<TicketDetail> ticketdetail= ticketdetailservice.getTicketDetails();
+		model.addAttribute("allticketdetails", ticketdetail);
 		return "list-ticket-detail-form";
 	}
 	@GetMapping("/addform")
 	public String addTicketDetail(Model model) {
-		TicketDetail theTk = new TicketDetail();
-		model.addAttribute("addticketdetail", theTk);
+		TicketDetail ticketdetail = new TicketDetail();
+		model.addAttribute("addticketdetail", ticketdetail);
 		return "add-ticket-detail-form";
 	}
 
 	@PostMapping("/newticketdetail")
-	public String addTicketDetailSave(@Valid @ModelAttribute("addticketdetail") TicketDetail theTk,Errors errors) {
+	public String addTicketDetailSave(@Valid @ModelAttribute("addticketdetail") TicketDetail ticketdetail,Errors errors) {
 		if (errors.hasErrors()) {
 			return "add-ticket-detail-form";
 		}
-		ticketdetailservice.save(theTk);
+		ticketdetailservice.save(ticketdetail);
 		return TICKETDETAIL;
     }
 	@GetMapping("/modifyticketdetail")
@@ -57,17 +57,17 @@ public class TicketDetailController {
 	@GetMapping("/updateform")
 	public String updateTicketDetailForm(@RequestParam("ticketNo") int id,@RequestParam("name")String value, Model model) {
 		TicketDetailCompositeKey ticketDetailCompositeKey = new TicketDetailCompositeKey(id,value);
-		Optional<TicketDetail> theTk = ticketdetailservice.findByid(ticketDetailCompositeKey);
-		model.addAttribute("updateticketdetail", theTk);
+		Optional<TicketDetail> ticketdetail = ticketdetailservice.findByid(ticketDetailCompositeKey);
+		model.addAttribute("updateticketdetail", ticketdetail);
 		return "update-ticket-detail-form";
 	}
 
 	@PostMapping("/updatetkdetail")
-	public String modifyticketdetail(@Valid @ModelAttribute("updateticketdetail") TicketDetail theTk,Errors errors) {
+	public String modifyticketdetail(@Valid @ModelAttribute("updateticketdetail") TicketDetail ticketdetail,Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-ticket-detail-form";
 		}
-	 ticketdetailservice.save(theTk);
+	 ticketdetailservice.save(ticketdetail);
 		return TICKETDETAIL;
 	}
 	@GetMapping("/removeticketdetail")
@@ -90,8 +90,8 @@ public class TicketDetailController {
 	@GetMapping("/getticketdetailbyno")
 	public String getticketbyid(@RequestParam("ticketNo") int id,@RequestParam("name")String value, Model model) {
 		TicketDetailCompositeKey ticketdetailcompositeKey = new TicketDetailCompositeKey(id,value);
-		Optional<TicketDetail> ur = ticketdetailservice.findByid(ticketdetailcompositeKey);
-		model.addAttribute("getticketdetailbynum", ur);
+		Optional<TicketDetail> ticketdetail = ticketdetailservice.findByid(ticketdetailcompositeKey);
+		model.addAttribute("getticketdetailbynum", ticketdetail);
 		return "find-ticket-detail-by-ticketnum";
 	}
 
