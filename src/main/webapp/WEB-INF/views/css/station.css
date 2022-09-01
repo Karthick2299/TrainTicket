@@ -46,11 +46,11 @@ table, td {
     margin-top: -56px; 
 }
 table, th{
-	font-size: 18px;
+	font-size: 20px;
     border: 1px solid black;
     padding: 25px;
     text-align: center;
-    color: midnightblue;
+    color: yellow;
     margin-left: -120px;
 }
 
@@ -76,8 +76,8 @@ table, th{
     font-size: 22px;
     height: 35px;
     width: 318px;
-    background-color: #000000;
-    color: deeppink;
+    background-color: darkviolet;
+    color: aquamarine;
     }
 .box {
     overflow: hidden;

@@ -10,6 +10,10 @@ body{
 }
 div{
 	text-align: center;
+	margin-left: 196px;
+}
+h1{
+	text-align: center;
 }
 .button3 {
 	position: absolute;

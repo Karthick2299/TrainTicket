@@ -9,16 +9,18 @@
 <title>Passenger Details</title>
 <style><%@include file ="/WEB-INF/views/css/passenger.css"%>
 </style>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+<%@include file ="/WEB-INF/views/js/date.js"%>
+</script>
 </head>
 <body>
-	
 	<h3>Ticket Booking</h3>
 	<div id="root">
 		<div id="form">
 			<form:form action="addpassengers" method="post"
 				modelAttribute="ticketDetail">
+			
 				<div>
 					<label for="ticketNo">Ticket Number</label>
 					<div>
@@ -43,7 +45,8 @@
 				<div>
 					<label for="dob"> Date Of Birth</label>
 					<div>
-						<form:input path="dob" type="date" required="true" />
+						<form:input path="dob" type="date" id="dateOfBirth" title="Enter Your Date Of Birth"
+						onblur="dateOfBirthCheck()" required="true" />
 					</div>
 				</div>
 
@@ -65,7 +68,7 @@
 				</div>
 				<form:errors path="nationality" cssClass="text-danger" />
 				<div>
-					<form:button>Apply</form:button>
+					<form:button>ADD PASSENGER</form:button>
 				</div>
 			</form:form>
 		</div>
@@ -99,8 +102,8 @@
 		</table>
 	</div>
 	<div>
-		<a href="/paymentdetail/addform?ticketNo=${ticketDetail.ticketNo}"><button>Pay
-				And Confirm</button></a>
+		<a href="/paymentdetail/addform?ticketNo=${ticketDetail.ticketNo}">
+		<button>Pay And Confirm</button></a>
 	</div>
 	<div>
 		<a href="/user/useraccessa"><button class="button3">

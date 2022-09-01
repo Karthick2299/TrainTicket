@@ -38,26 +38,16 @@ public class StationService {
 		{
 			stationrepo.deleteById(id);
 		}
-		public StationAndTrainDetailDTO getStationAndTrainDetailDTO (String name) {
-			Optional<Station> station = stationrepo.findById(name);
+		public StationAndTrainDetailDTO getStationAndTrainDetailDTO (String start,String end) {
+			Optional<Station> station = stationrepo.findById(start);
 			StationAndTrainDetailDTO dto = new StationAndTrainDetailDTO();
 			dto.setStation(station);
-			List<TrainDetail> traindetail = trainrepo.findByStartPlace(name);
-			Iterator<TrainDetail> itr = traindetail.iterator();
-			while(itr.hasNext()) {
-				dto.addTrainDetail(itr.next());
+			List<TrainDetail> traindetails =trainrepo.findAllByStartPlaceAndDestination(start,end);
+			Iterator<TrainDetail> iterator = traindetails.iterator();
+			while(iterator.hasNext()) {
+					dto.addTrainDetail(iterator.next());	
 			}
 			return dto;
 		}
-		public StationAndTrainDetailDTO getStationAndTrainDetailDestinationDTO (String name) {
-			Optional<Station> station1 = stationrepo.findById(name);
-			StationAndTrainDetailDTO dto = new StationAndTrainDetailDTO();
-			dto.setStation(station1);
-			List<TrainDetail> traindetail1 = trainrepo.findByDestination(name);
-			Iterator<TrainDetail> itr = traindetail1.iterator();
-			while(itr.hasNext()) {
-				dto.addTrainDetail(itr.next());
-			}
-			return dto;
-		}
+		
 }

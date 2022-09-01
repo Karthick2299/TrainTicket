@@ -100,8 +100,8 @@ public class StationController {
 		return "station-startplace-form";
 	}
 	@GetMapping("/getstationstartplace")
-	public String getStationAndTrainDetail(@RequestParam("name")String name,Model model) {
-		StationAndTrainDetailDTO dto=stationservice.getStationAndTrainDetailDTO(name);
+	public String getStationAndTrainDetail(@RequestParam("fromstation")String name,@RequestParam("tostation")String value,Model model) {
+		StationAndTrainDetailDTO dto=stationservice.getStationAndTrainDetailDTO(name, value);
 		model.addAttribute("station",dto.getStation());
 		model.addAttribute("traindetail",dto.getTraindetail());
 		return "station-train-detail";

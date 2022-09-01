@@ -17,7 +17,8 @@
 		style="margin: 0;">
 		<div class="code">
 			<label>Enter Station Code </label> 
-			<input type="text" placeholder="Station Code" name="name" required="required" >
+			<input type="text" placeholder="From" name="fromstation" required="required" >
+			<input type="text" placeholder="To" name="tostation" required="required" >
 		<div class="submit">	
 		    <input type='submit' value="Submit" name="submit">
 		</div>    

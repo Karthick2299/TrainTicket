@@ -10,19 +10,21 @@
 <style><%@include file ="/WEB-INF/views/css/ticket.css"%>
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+<%@include file ="/WEB-INF/views/js/date.js"%>
+</script>
 </head>
 <body>
-<h2>Booking Details</h2>
+<h2>Welcome To Train Ticket Booking ${loggeduser.userName}!</h2>
 <div id="root" class="box">
 		<div id="form">
 		<form:form action="newticket" method="post" modelAttribute="addticket">
 				<div>
-					<label for="userId">User Id</label>
+					<label for="userId"></label>
 					<div>
-						<form:input path="userId" title="User Id can't be empty" required="true"/>
+						<form:input path="userId" type="hidden" required="true" />
 					</div>
 				</div>
-				<form:errors path="userId" cssClass="text-danger" />
 				<div>
 					<label for="trainNo">Train Number</label>
 					<div>
@@ -39,7 +41,8 @@
 				<div>
 					<label for="travellingDate">Travel Date</label>
 					<div>
-						<form:input path="travellingDate" type="date" title="Select Your Travelling Date" required="true" class="input" />
+						<form:input path="travellingDate" type="date" id="travelDate" title="Select Your Travelling Date" 
+						onblur="travelDateCheck()" required="true" />
 					</div>
 				</div>
 				<div>
@@ -86,7 +89,7 @@
 				<form:errors path="arrivalTime" cssClass="text-danger" />
 				<br>
 				<div>
-				<form:button>Add Ticket</form:button>
+				<form:button>Book Ticket</form:button>
 		        </div>
 		</form:form>
 	</div>

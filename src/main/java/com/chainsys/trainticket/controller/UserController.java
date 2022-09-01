@@ -124,6 +124,7 @@ public class UserController {
 		User userlogin = userservice.getUserByNameAndPassword(user.getUserName(), user.getUserPassword());
 		if (userlogin != null) {
 			session.setAttribute("userId", userlogin.getUserId());
+			model.addAttribute("loggeduser", userlogin);
 			return "user-access";
 		} else
 			

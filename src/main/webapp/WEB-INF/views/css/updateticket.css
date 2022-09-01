@@ -79,3 +79,18 @@ h4{
     font-size: 16px;
     color: lemonchiffon;
 }
+.main{
+	font-size: 23px;
+    color: lime;
+}
+.menu{
+	color:lime;
+	margin-left: -251px;
+    margin-bottom: -26px;
+    font-size: 23px;
+
+}
+.menu1{
+	margin-left: 198px;
+    margin-bottom: 14px;
+}

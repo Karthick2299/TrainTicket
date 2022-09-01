@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -18,8 +19,9 @@ import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="paymentdetails")
+@IdClass(com.chainsys.trainticket.compositekey.PaymentDetailCompositeKey.class)
 public class PaymentDetail {
-	
+	@Id
 	@Column(name="ticket_no")
 	private int ticketNo;
 	@Id
@@ -96,6 +98,5 @@ public class PaymentDetail {
 	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
 	}
-	
 	
 }

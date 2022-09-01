@@ -15,10 +15,8 @@ public interface TrainDetailRepository extends CrudRepository<TrainDetail,Intege
  	void deleteById(int id);
  	
  	List<TrainDetail> findAll(); 
- 	
- 	List<TrainDetail> findByStartPlace(String name);
- 	
- 	List<TrainDetail> findByDestination(String value);
+
+	List<TrainDetail> findAllByStartPlaceAndDestination(String start, String end);
  	
 
 }

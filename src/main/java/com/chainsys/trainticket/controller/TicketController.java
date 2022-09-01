@@ -43,8 +43,13 @@ public class TicketController {
 		model.addAttribute("alltickets", ticket);
 		return "list-ticket-form";
 	}
+	@GetMapping("/addticketformcall")
+	public String addformCall(@ModelAttribute("getticketfarebynum")TicketFare ticketFare,Model model) {
+		model.addAttribute("getticketfarebynumA",ticketFare);
+		return "redirect:/ticket/addticketform";
+	}
 	@PostMapping("/addticketform")
-	public String addForm(@ModelAttribute("getticketfarebynum")TicketFare ticketFare,Model model,HttpServletRequest request) {
+	public String addForm(@ModelAttribute("getticketfarebynumA")TicketFare ticketFare,Model model,HttpServletRequest request) {
 		Ticket ticket = new Ticket();
 		HttpSession session= request.getSession();
 		int userId=(int)session.getAttribute("userId");

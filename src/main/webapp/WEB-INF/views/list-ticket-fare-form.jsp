@@ -23,7 +23,8 @@
 					<th>Max Seats</th>
 					<th>Seat Class</th>
 					<th>Fare</th>
-					<th>Amount</th>
+					<th> book </th>
+
 				</tr>
 			</thead>
 			<tbody>

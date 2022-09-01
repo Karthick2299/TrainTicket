@@ -30,8 +30,8 @@ public class TicketFareController {
 	 
 	@GetMapping("/listtktfare")
 	public String getTicketFares(@RequestParam("trainNo")int trainNo,Model model) {
-		List<TicketFare> theTf= ticfareservice.findByTrainNo(trainNo);
-		model.addAttribute("alltktfare", theTf);
+		List<TicketFare> ticketFare= ticfareservice.findByTrainNo(trainNo);
+		model.addAttribute("alltktfare", ticketFare);
 		return "list-ticket-fare-form";
 	}
 	@GetMapping("/listoftkt")
@@ -42,17 +42,17 @@ public class TicketFareController {
 	}
 	@GetMapping("/addticketfareform")
 	public String addTicketFare(Model model) {
-		TicketFare theTf = new TicketFare();
-		model.addAttribute("addtktfare", theTf);
+		TicketFare ticketFare = new TicketFare();
+		model.addAttribute("addtktfare", ticketFare);
 		return "add-ticket-fare-form";
 	}
 
 	@PostMapping("/newticketfare")
-	public String addtkfare(@Valid @ModelAttribute("addtktfare") TicketFare theTf,Errors errors) {
+	public String addtkfare(@Valid @ModelAttribute("addtktfare") TicketFare ticketFare,Errors errors) {
 		if(errors.hasErrors()) {
 			return "add-ticket-fare-form";
 		}
-		ticfareservice.save(theTf);
+		ticfareservice.save(ticketFare);
 		return LISTTICKETFARE;
     }
 	@GetMapping("/modifyticketfare")
@@ -63,17 +63,17 @@ public class TicketFareController {
 	@GetMapping("/updateticketfareform")
 	public String updateTicketFareForm(@RequestParam("TrainNo")int id,@RequestParam("class")String sid, Model model) {
 		TicketFareCompositeKey ticketFareCompositeKey=new TicketFareCompositeKey(id,sid);
-		Optional<TicketFare> theTn = ticfareservice.findByid(ticketFareCompositeKey);
-		model.addAttribute("updatetkfare", theTn);
+		Optional<TicketFare> ticketFare = ticfareservice.findByid(ticketFareCompositeKey);
+		model.addAttribute("updatetkfare", ticketFare);
 		return "update-ticket-fare-form";
 	}
 
 	@PostMapping("/updatetf")
-	public String modifyticketfare(@Valid @ModelAttribute("updatetkfare") TicketFare theTf,Errors errors) {
+	public String modifyticketfare(@Valid @ModelAttribute("updatetkfare") TicketFare ticketFare,Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-ticket-fare-form";
 		}
-		ticfareservice.save(theTf);
+		ticfareservice.save(ticketFare);
 		return LISTTICKETFARE;
 	}
 	@GetMapping("/deleteticketfare")
@@ -96,8 +96,8 @@ public class TicketFareController {
 	@GetMapping("/getticketfarebyno")
 	public String getticketbyid(@RequestParam("TrainNo") int id,@RequestParam("class")String sid, Model model) {
 		TicketFareCompositeKey ticketFareCompositeKey=new TicketFareCompositeKey(id,sid);
-		Optional<TicketFare> theFare = ticfareservice.findByid(ticketFareCompositeKey);
-		model.addAttribute("getticketfarebynum", theFare);
+		Optional<TicketFare> ticketFare = ticfareservice.findByid(ticketFareCompositeKey);
+		model.addAttribute("getticketfarebynum", ticketFare);
 		return "find-ticket-fare-by-ticketnum";
 	}
 	@GetMapping("/findbytrainnno")

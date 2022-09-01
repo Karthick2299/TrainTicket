@@ -11,7 +11,9 @@
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
-<div id="table root" class="align">
+<div class="align">
+<h1>Ticket Details</h1>
+<div id="table root">
 		<table>
 		<caption></caption>
 			<thead>
@@ -38,6 +40,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+	</div>
 	</div>
 	<div>
 		<a href="/admin/adminaccess"><button class="button3">

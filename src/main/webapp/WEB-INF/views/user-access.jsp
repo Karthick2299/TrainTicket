@@ -9,7 +9,7 @@
 </style>
 </head>
 <body>
-	<h1>Welcome</h1>
+	<h1>Welcome ${loggeduser.userName}!</h1>
 
 	<div class="navbar">
 		<div class="dropdown">
@@ -38,7 +38,7 @@
 			</button>
 			<div class="dropdown-content"> 
 				<a href="/ticket/modifyticket">Update Ticket</a>
-				 <a	href="/ticket/removeticket">Cancel Your Ticket</a>
+				 <a	href="/paymentdetail/removepayment">Cancel Your Ticket</a>
 				 <a	href="/ticket/findticket">Your Ticket Details</a>
 			</div>
 		</div>

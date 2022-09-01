@@ -34,7 +34,6 @@
 						<td>${stn.stationId}</td>
 						<td>${stn.stationName}</td>
 						<td>${stn.stationAddress}</td>
-
 					</tr>
 				</c:forEach>
 			</tbody>

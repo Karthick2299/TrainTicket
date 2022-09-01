@@ -12,7 +12,7 @@
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
-<h1>Station</h1>
+<h1>Add Station</h1>
 <div id="root">
 		<div id="form">
 		<form:form action="addstation" method="post" modelAttribute="newstation">

@@ -15,7 +15,7 @@ public interface PaymentDetailRepository extends CrudRepository<PaymentDetail,Pa
 	PaymentDetail save(PaymentDetail pd);
  	
  	
- 	void deleteById(PaymentDetailCompositeKey id);
+ 	void deleteById(PaymentDetailCompositeKey paymentDetailCompositeKey);
  	
  	List<PaymentDetail> findAll(); 
 

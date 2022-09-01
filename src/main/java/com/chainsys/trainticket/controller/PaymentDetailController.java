@@ -93,7 +93,7 @@ public class PaymentDetailController {
 		public String deletePayment(@RequestParam("ticketNo") int id,@RequestParam("userId")int name) {
 			PaymentDetailCompositeKey paymentDetailcompositeKey =new PaymentDetailCompositeKey(id,name); 
 			pdservice.deleteById(paymentDetailcompositeKey);
-			return "redirect:/paymentdetail/listpayment";
+			return "delete-ticket-success";
 		}
 		@GetMapping("/findpayment")
 		public String getPayment() {
